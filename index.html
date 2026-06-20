@@ -1,0 +1,2099 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>963AD · استضافة وتطوير وSEO</title>
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons (Free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Font: Cairo -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      background: #0c0b14;
+      color: #eaeaf0;
+    }
+
+    .bg-primary {
+      background-color: #6f3fdb;
+    }
+
+    .bg-secondary {
+      background-color: #10d9c6;
+    }
+
+    .text-primary {
+      color: #6f3fdb;
+    }
+
+    .text-secondary {
+      color: #10d9c6;
+    }
+
+    .border-primary {
+      border-color: #6f3fdb;
+    }
+
+    .btn-primary {
+      background: linear-gradient(145deg, #7a4de8, #5a2eb8);
+      color: white;
+      box-shadow: 0 8px 20px -8px #6f3fdb80;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(145deg, #8c5ff0, #4f25a3);
+      transform: scale(1.02);
+    }
+
+    .btn-outline-primary {
+      border: 2px solid #6f3fdb;
+      color: #6f3fdb;
+      background: transparent;
+    }
+
+    .btn-outline-primary:hover {
+      background: #6f3fdb;
+      color: white;
+    }
+
+    .card-glass {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-glass-dark {
+      background: rgba(20, 18, 32, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .gradient-divider {
+      height: 4px;
+      background: linear-gradient(90deg, #6f3fdb, #10d9c6, #6f3fdb);
+      width: 80px;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: 0.25s;
+      border-radius: 24px;
+      padding: 12px;
+    }
+
+    .project-card:hover {
+      background: rgba(255, 255, 255, 0.07);
+      transform: translateY(-6px);
+      border-color: #6f3fdb60;
+    }
+
+    .project-card img {
+      border-radius: 16px;
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      background: #1a1828;
+    }
+
+    .service-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      background: rgba(111, 63, 219, 0.15);
+      color: #b59aff;
+    }
+
+    .service-icon.sec {
+      background: rgba(16, 217, 198, 0.15);
+      color: #5eeadd;
+    }
+
+    .nav-link {
+      color: #c8c6d4;
+      transition: 0.2s;
+      font-weight: 600;
+    }
+
+    .nav-link:hover {
+      color: #b59aff;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background: #1a1828;
+      min-width: 200px;
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.8);
+      border-radius: 20px;
+      padding: 8px 0;
+      z-index: 50;
+      border: 1px solid #2a2740;
+    }
+
+    .dropdown-group:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 22px;
+      color: #d4d0e6;
+      transition: 0.15s;
+      font-weight: 500;
+      border-right: 3px solid transparent;
+    }
+
+    .dropdown-menu a:hover {
+      background: #2a2740;
+      color: #b59aff;
+      border-right-color: #6f3fdb;
+    }
+
+    .scroll-mt {
+      scroll-margin-top: 90px;
+    }
+
+    .hero-glow {
+      background: radial-gradient(circle at 70% 20%, #6f3fdb30, transparent 60%), radial-gradient(circle at 20% 80%, #10d9c620, transparent 50%), #0c0b14;
+    }
+
+    input,
+    textarea {
+      background: #141224;
+      border: 1px solid #2a2740;
+      color: #eaeaf0;
+      border-radius: 16px;
+      padding: 16px 24px;
+      width: 100%;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    input {
+      height: 56px;
+    }
+
+    textarea {
+      min-height: 120px;
+      padding-top: 16px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #6f3fdb;
+      box-shadow: 0 0 0 3px #6f3fdb30;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #6a6780;
+    }
+
+    .footer-link {
+      color: #9a96b0;
+      transition: 0.2s;
+    }
+
+    .footer-link:hover {
+      color: #b59aff;
+    }
+
+    .logo-img {
+      height: 42px;
+      width: auto;
+      max-width: 130px;
+      border-radius: 12px;
+    }
+
+    .pricing-popular {
+      background: rgba(111, 63, 219, 0.1);
+      border: 2px solid #6f3fdb;
+      box-shadow: 0 0 30px rgba(111, 63, 219, 0.3);
+      transform: scale(1.05);
+      position: relative;
+    }
+
+    .pricing-popular::before {
+      content: 'الأكثر طلباً';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(145deg, #7a4de8, #5a2eb8);
+      color: white;
+      padding: 4px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .pricing-popular {
+        transform: scale(1);
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .faq-question {
+      padding: 18px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      color: #eaeaf0;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      padding: 0 24px;
+      color: #b0adc8;
+      transition: all 0.3s ease-in-out;
+      opacity: 0;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .faq-item.active {
+      background: rgba(111, 63, 219, 0.05);
+      border-color: #6f3fdb50;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding: 0 24px 18px 24px;
+      opacity: 1;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+      color: #10d9c6;
+    }
+
+    .faq-icon {
+      transition: 0.3s;
+      color: #6f3fdb;
+    }
+
+    .tech-marquee {
+      display: flex;
+      overflow: hidden;
+      user-select: none;
+      gap: 2rem;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .tech-track {
+      display: flex;
+      gap: 2rem;
+      flex-shrink: 0;
+      animation: scroll-tech 15s linear infinite;
+    }
+
+    @keyframes scroll-tech {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(calc(100% + 2rem));
+      }
+    }
+
+    .tech-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 12px 24px;
+      border-radius: 100px;
+      font-weight: 700;
+      color: #eaeaf0;
+      white-space: nowrap;
+      transition: 0.3s;
+    }
+
+    .tech-badge:hover {
+      background: rgba(111, 63, 219, 0.1);
+      border-color: #6f3fdb;
+      transform: translateY(-3px);
+    }
+
+    .fixed-btn {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .fixed-btn a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      color: white;
+      font-size: 24px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      transition: 0.2s;
+      text-decoration: none;
+    }
+
+    .fixed-btn a:hover {
+      transform: scale(1.1);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+    }
+
+    .btn-call {
+      background: #3b5998;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    @media (min-width: 768px) {
+      .map-container iframe {
+        height: 350px;
+      }
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(4px);
+    }
+
+    .contact-card:hover {
+      border-color: #6f3fdb60;
+    }
+
+    /* light theme overrides */
+    body.light-theme {
+      background: #f2f0f8;
+      color: #1a1828;
+    }
+
+    body.light-theme .bg-\[\#0c0b14\],
+    body.light-theme .bg-\[\#0c0b14\]\/80,
+    body.light-theme .bg-\[\#0c0b14\]\/40 {
+      background-color: #f2f0f8 !important;
+    }
+
+    body.light-theme .bg-\[\#0f0e18\] {
+      background-color: #ffffff !important;
+    }
+
+    body.light-theme .bg-\[\#141224\]\/80 {
+      background-color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    body.light-theme .bg-\[\#1a1828\] {
+      background-color: rgba(0, 0, 0, 0.05) !important;
+    }
+
+    body.light-theme .bg-white\/5 {
+      background-color: rgba(0, 0, 0, 0.05) !important;
+    }
+
+    body.light-theme .hover\:bg-white\/5:hover {
+      background-color: rgba(0, 0, 0, 0.05) !important;
+    }
+
+    body.light-theme .bg-primary\/20 {
+      background-color: rgba(111, 63, 219, 0.15) !important;
+    }
+
+    body.light-theme .text-white {
+      color: #1a1828 !important;
+    }
+
+    body.light-theme .text-\[\#b59aff\] {
+      color: #6f3fdb !important;
+    }
+
+    body.light-theme .btn-primary,
+    body.light-theme button {
+      color: #ffffff !important;
+    }
+
+    body.light-theme .btn-primary .text-white,
+    body.light-theme button .text-white {
+      color: #ffffff !important;
+    }
+
+    body.light-theme .text-\[\#b0adc8\] {
+      color: #5a5870 !important;
+    }
+
+    body.light-theme .text-\[\#9a96b0\] {
+      color: #6a6780 !important;
+    }
+
+    body.light-theme .text-\[\#c8c6d4\] {
+      color: #2a2740 !important;
+    }
+
+    body.light-theme .border-white\/5 {
+      border-color: rgba(0, 0, 0, 0.05) !important;
+    }
+
+    body.light-theme .border-white\/10 {
+      border-color: rgba(0, 0, 0, 0.1) !important;
+    }
+
+    body.light-theme .border-white\/20 {
+      border-color: rgba(0, 0, 0, 0.2) !important;
+    }
+
+    body.light-theme .shadow-inner {
+      box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06) !important;
+    }
+
+    body.light-theme .bg-primary {
+      background-color: #7a4de8;
+    }
+
+    body.light-theme .bg-secondary {
+      background-color: #0cc7b5;
+    }
+
+    body.light-theme .text-primary {
+      color: #6f3fdb;
+    }
+
+    body.light-theme .text-secondary {
+      color: #0cc7b5;
+    }
+
+    body.light-theme .nav-link {
+      color: #2a2740;
+    }
+
+    body.light-theme .nav-link:hover {
+      color: #6f3fdb;
+    }
+
+    body.light-theme .card-glass {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+    }
+
+    body.light-theme .card-glass-dark {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    body.light-theme .hero-glow {
+      background: radial-gradient(circle at 70% 20%, #6f3fdb20, transparent 60%), radial-gradient(circle at 20% 80%, #10d9c620, transparent 50%), #f2f0f8;
+    }
+
+    body.light-theme input,
+    body.light-theme textarea {
+      background: #ffffff;
+      border: 1px solid #d0cde0;
+      color: #1a1828;
+    }
+
+    body.light-theme input::placeholder,
+    body.light-theme textarea::placeholder {
+      color: #8a87a0;
+    }
+
+    body.light-theme .tech-badge {
+      background: rgba(255, 255, 255, 0.5);
+      border-color: rgba(0, 0, 0, 0.08);
+      color: #1a1828;
+    }
+
+    body.light-theme .project-card {
+      background: rgba(255, 255, 255, 0.4);
+      border-color: rgba(0, 0, 0, 0.06);
+    }
+
+    body.light-theme .project-card:hover {
+      background: rgba(255, 255, 255, 0.7);
+      border-color: #6f3fdb60;
+    }
+
+    body.light-theme .faq-item {
+      background: rgba(255, 255, 255, 0.4);
+      border-color: rgba(0, 0, 0, 0.06);
+    }
+
+    body.light-theme .faq-item.active {
+      background: rgba(111, 63, 219, 0.08);
+      border-color: #6f3fdb50;
+    }
+
+    body.light-theme .faq-question {
+      color: #1a1828;
+    }
+
+    body.light-theme .faq-answer {
+      color: #3a3850;
+    }
+
+    body.light-theme .pricing-popular {
+      background: rgba(111, 63, 219, 0.08);
+      border-color: #6f3fdb;
+      box-shadow: 0 0 30px rgba(111, 63, 219, 0.15);
+    }
+
+    body.light-theme .dropdown-menu {
+      background: #f2f0f8;
+      border-color: #d0cde0;
+    }
+
+    body.light-theme .dropdown-menu a {
+      color: #2a2740;
+    }
+
+    body.light-theme .dropdown-menu a:hover {
+      background: #e0dcee;
+      color: #6f3fdb;
+      border-right-color: #6f3fdb;
+    }
+
+    body.light-theme .contact-card {
+      background: rgba(255, 255, 255, 0.4);
+      border-color: rgba(0, 0, 0, 0.06);
+    }
+
+    body.light-theme footer {
+      background: #e8e5f0;
+      border-color: rgba(0, 0, 0, 0.06);
+    }
+
+    body.light-theme .footer-link {
+      color: #5a5870;
+    }
+
+    body.light-theme .footer-link:hover {
+      color: #6f3fdb;
+    }
+
+    body.light-theme .service-icon {
+      background: rgba(111, 63, 219, 0.12);
+      color: #6f3fdb;
+    }
+
+    body.light-theme .service-icon.sec {
+      background: rgba(16, 217, 198, 0.12);
+      color: #0cc7b5;
+    }
+
+    body.light-theme header {
+      background: rgba(242, 240, 248, 0.85);
+      border-color: rgba(0, 0, 0, 0.06);
+    }
+
+    body.light-theme #mobile-menu {
+      background: #f2f0f8;
+      border-color: rgba(0, 0, 0, 0.06);
+    }
+
+    body.light-theme .logo-img {
+      filter: brightness(0.8);
+    }
+  </style>
+  
+  <meta name="description"
+    content="نقدم حلولاً رقمية متكاملة تشمل استضافة مواقع فائقة السرعة، تطوير تطبيقات Android و iOS، خدمات SEO احترافية، وتطوير مواقع ويب متجاوبة. 15 عاماً من الخبرة في خدمة عملائنا.">
+  <meta name="keywords" content="استضافة مواقع, شركة استضافة, استضافة سحابية, استضافة عربية, استضافة سريعة, استضافة مواقع عربية, أفضل استضافة, استضافة ويب, تسجيل دومين, شرائح استضافة, 
+  تصميم مواقع, شركة تصميم مواقع, تصميم مواقع احترافي, تصميم مواقع سوريا, تصميم مواقع عربية, تصميم متجاوب, تصميم واجهات, تصميم موقع شركة, مصمم مواقع, 
+  تطوير تطبيقات, برمجة تطبيقات, تطبيقات جوال, تطبيقات اندرويد, تطبيقات ios, شركة تطوير تطبيقات, تطبيقات سوريا, برمجة تطبيقات الجوال, flutter, react native, 
+  SEO, تحسين محركات البحث, تحسين محركات البحث جوجل, خبير سيو, استراتيجية سيو, تحسين موقع, SEO عربي, ظهور في جوجل, ترتيب جوجل, أفضل شركة سيو, 
+  تسويق رقمي, حلول رقمية, تطوير ويب, برمجة مواقع, متجر الكتروني, تصميم متجر, نظام إدارة محتوى, ووردبريس, لارافيل, 963AD, شركة برمجة سوريا, شركة تقنية, 
+  استضافة دومين, شهادة SSL, أمان المواقع, خوادم سحابية, دعم فني 24/7, أفضل شركة استضافة وتطوير, حلول سحابية, تطوير مواقع سوريا, شركة سيو سوريا">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://963ad.net/">
+
+  <!-- ===== OPEN GRAPH / SOCIAL META TAGS ===== -->
+  <meta property="og:title" content="963AD · استضافة وتطوير وSEO | حلول رقمية متكاملة">
+  <meta property="og:description"
+    content="نقدم حلولاً رقمية متكاملة تشمل استضافة مواقع، تطوير تطبيقات، خدمات SEO، وتطوير ويب. خبرة 15 عاماً في خدمة عملائنا.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://963ad.net/">
+  <meta property="og:image" content="https://963ad.net/images/logo.jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:site_name" content="963AD">
+
+  <!-- ===== TWITTER CARD META TAGS ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="963AD · استضافة وتطوير وSEO | حلول رقمية متكاملة">
+  <meta name="twitter:description"
+    content="نقدم حلولاً رقمية متكاملة تشمل استضافة مواقع، تطوير تطبيقات، خدمات SEO، وتطوير ويب. خبرة 15 عاماً.">
+  <meta name="twitter:image" content="https://963ad.net/images/logo.jpeg">
+  <meta name="twitter:site" content="@AgencyPurple">
+  <meta name="twitter:creator" content="@AgencyPurple">
+
+  <!-- ===== ADDITIONAL SEO META TAGS ===== -->
+  <meta name="author" content="963AD">
+  <meta name="copyright" content="963AD">
+  <meta name="revisit-after" content="7 days">
+  <meta name="distribution" content="global">
+  <meta name="rating" content="general">
+  <meta name="language" content="ar">
+  <meta name="theme-color" content="#6f3fdb">
+
+  <!-- ===== STRUCTURED DATA (JSON-LD) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "963AD",
+    "description": "شركة متخصصة في تقديم خدمات الاستضافة، تطوير المواقع والتطبيقات، وتحسين محركات البحث (SEO).",
+    "url": "https://963ad.net/",
+    "logo": "https://963ad.net/images/logo.png",
+    "email": "info@963ad.net",
+    "telephone": "+963938012841",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "SY",
+      "addressLocality": "Damascus",
+      "addressRegion": "Damascus",
+      "streetAddress": "West Mazah B57"
+    },
+    "sameAs": [
+      "https://www.facebook.com/PurpleArtAgency",
+      "https://x.com/AgencyPurple",
+      "https://www.instagram.com/purple_art_agency/?hl=en",
+      "https://www.pinterest.com/purpleartagency/",
+      "https://www.behance.net/purplearta623b"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "963AD",
+    "url": "https://963ad.net/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://963ad.net/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "الرئيسية",
+        "item": "https://963ad.net/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "خدماتنا",
+        "item": "https://963ad.net/#services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "تواصل معنا",
+        "item": "https://963ad.net/#contact"
+      }
+    ]
+  }
+  </script>
+
+  <!-- ===== PRELOAD / PREFETCH / DNS PREFETCH ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+  <!-- ===== FAVICON ===== -->
+  <link rel="icon" type="image/jpeg" href="./images/logo.jpeg">
+  <link rel="shortcut icon" href="./images/logo.jpeg" type="image/x-icon">
+  <link rel="apple-touch-icon" href="./images/logo.jpeg">
+  <link rel="manifest" href="https://963ad.net/site.webmanifest">
+
+  <!-- ===== Tailwind via CDN ===== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ===== Font Awesome Icons (Free) ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- ===== Google Font: Cairo ===== -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- FIXED BUTTONS: WhatsApp & Call -->
+  <div class="fixed-btn">
+    <a href="https://wa.me/963938012841" target="_blank" class="btn-whatsapp" aria-label="WhatsApp"><i
+        class="fab fa-whatsapp"></i></a>
+    <a href="tel:+963938012841" class="btn-call" aria-label="Call"><i class="fas fa-phone-alt"></i></a>
+  </div>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header
+    class="fixed top-0 left-0 right-0 z-50 bg-[#0c0b14]/80 backdrop-blur-xl border-b border-white/5 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+      <!-- logo -->
+      <div class="flex items-center gap-3">
+        <img src="./images/logo.png" alt="963AD" class="logo-img"
+          onerror="this.onerror=null; this.src='https://placehold.co/140x50/6f3fdb/ffffff?text=963AD'">
+        <span
+          class="hidden md:inline text-sm font-semibold text-[#b59aff] bg-primary/20 px-3 py-1 rounded-full transition-colors">استضافة
+          · تطوير · SEO</span>
+      </div>
+
+      <!-- nav desktop - Centered -->
+      <nav class="hidden md:flex items-center gap-5 text-sm lg:gap-7 mx-auto">
+        <a href="#" class="nav-link transition-colors" data-translate="home">الرئيسية</a>
+        <a href="#about" class="nav-link transition-colors" data-translate="about">عن شركتنا</a>
+        <div class="relative dropdown-group">
+          <a href="#services" class="nav-link flex items-center gap-1 cursor-pointer transition-colors"
+            data-translate="services">خدماتنا <i class="fas fa-chevron-down text-[10px] text-primary/70"></i></a>
+          <div class="dropdown-menu transition-colors">
+            <a href="#service-hosting" data-translate="hosting"><i class="fas fa-server ml-2 text-primary/60"></i>
+              الاستضافة</a>
+            <a href="#service-apps" data-translate="apps"><i class="fas fa-mobile-alt ml-2 text-primary/60"></i> تطوير
+              التطبيقات</a>
+            <a href="#service-seo" data-translate="seo"><i class="fas fa-chart-line ml-2 text-primary/60"></i> خدمات
+              SEO</a>
+            <a href="#service-web" data-translate="webdev"><i class="fas fa-laptop-code ml-2 text-primary/60"></i> تطوير
+              الويب</a>
+          </div>
+        </div>
+        <a href="#pricing" class="nav-link transition-colors" data-translate="pricing">الأسعار</a>
+        <a href="#projects" class="nav-link transition-colors" data-translate="projects">مشاريعنا</a>
+        <a href="#contact" class="nav-link transition-colors" data-translate="contact">تواصل معنا</a>
+      </nav>
+
+      <!-- left side: language + theme toggle -->
+      <div class="flex items-center gap-3">
+        <!-- Language Toggle -->
+        <button id="lang-toggle"
+          class="text-sm font-semibold text-[#b59aff] bg-primary/20 px-3 py-1.5 rounded-full hover:bg-primary/30 transition flex items-center gap-1.5 border border-primary/30">
+          <i class="fas fa-globe text-xs"></i>
+          <span id="lang-label">AR</span>
+        </button>
+        <!-- Theme Toggle (sun/moon) -->
+        <button id="theme-toggle"
+          class="text-xl text-[#b59aff] hover:text-secondary transition p-1.5 rounded-full hover:bg-white/5">
+          <i id="theme-icon" class="fas fa-moon"></i>
+        </button>
+        <!-- mobile toggle -->
+        <button id="menu-toggle" class="md:hidden text-2xl text-[#b59aff] mr-2"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+    <!-- mobile menu -->
+    <div id="mobile-menu"
+      class="md:hidden hidden bg-[#0c0b14] border-t border-white/5 px-6 py-5 flex flex-col gap-4 text-[#c8c6d4] font-semibold transition-colors">
+      <a href="#" class="hover:text-primary transition" data-translate="home">الرئيسية</a>
+      <a href="#about" class="hover:text-primary transition" data-translate="about">عن شركتنا</a>
+      <a href="#services" class="hover:text-primary transition" data-translate="services">خدماتنا</a>
+      <a href="#pricing" class="hover:text-primary transition" data-translate="pricing">الأسعار</a>
+      <a href="#projects" class="hover:text-primary transition" data-translate="projects">مشاريعنا</a>
+      <a href="#contact" class="hover:text-primary transition" data-translate="contact">تواصل معنا</a>
+    </div>
+  </header>
+
+  <main class="pt-24">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero-glow py-24 md:py-32 relative overflow-hidden transition-colors duration-300">
+      <!-- Decorative backgrounds -->
+      <div class="absolute top-10 left-10 w-72 h-72 bg-primary/20 rounded-full blur-[100px] pointer-events-none"></div>
+      <div class="absolute bottom-10 right-10 w-72 h-72 bg-secondary/20 rounded-full blur-[100px] pointer-events-none">
+      </div>
+
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+        <div class="text-center lg:text-start">
+          <span
+            class="inline-block bg-gradient-to-r from-primary/20 to-secondary/20 text-[#b59aff] border border-primary/30 px-5 py-2 rounded-full text-sm font-bold mb-6 transition-colors shadow-[0_0_15px_rgba(111,63,219,0.3)]"
+            data-translate="hero_badge">#حلول_رقمية_متكاملة</span>
+          <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-[1.4] tracking-tight">
+            <span class="block mb-3 md:mb-5">
+              <span class="text-white transition-colors" data-translate="hero_title_1">نحول أفكارك</span>
+              <span class="text-primary transition-colors" data-translate="hero_title_2">إلى واقع رقمي</span>
+            </span>
+            <span class="block">
+              <span class="text-white transition-colors" data-translate="hero_title_3">أفضل الحلول</span>
+              <span class="text-secondary transition-colors" data-translate="hero_title_4">التقنية</span>
+            </span>
+          </h1>
+          <p class="text-[#b0adc8] text-lg md:text-xl mt-6 max-w-xl mx-auto lg:mx-0 leading-relaxed transition-colors"
+            data-translate="hero_desc">نقدم لك حلولاً تقنية متكاملة تشمل تطوير المواقع، برمجة تطبيقات الجوال، تحسين
+            محركات البحث، والاستضافة السحابية الآمنة لضمان نجاح أعمالك.</p>
+          <div class="flex flex-wrap justify-center lg:justify-start gap-4 mt-10">
+            <a href="#contact"
+              class="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-full font-bold shadow-[0_10px_30px_-10px_rgba(111,63,219,0.6)] hover:shadow-[0_15px_40px_-10px_rgba(16,217,198,0.7)] transform hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 text-lg"
+              data-translate="btn_request"><i class="fas fa-rocket"></i> اطلب الخدمة الآن</a>
+            <a href="#services"
+              class="card-glass px-8 py-4 rounded-full font-bold text-white hover:text-primary transition-all duration-300 flex items-center gap-2 text-lg border border-white/10 hover:border-primary/50"
+              data-translate="btn_plans">استكشف خدماتنا</a>
+          </div>
+        </div>
+
+        <div class="relative w-full max-w-lg mx-auto mt-16 lg:mt-0 lg:ml-10">
+          <!-- Back Decorative Panel -->
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-3xl transform rotate-3 opacity-20 blur-sm pointer-events-none">
+          </div>
+
+          <!-- Main Dashboard Window -->
+          <div
+            class="relative card-glass-dark border border-white/10 rounded-3xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] group hover:shadow-[0_40px_70px_-15px_rgba(111,63,219,0.3)] transition-shadow duration-500">
+            <!-- Window Header -->
+            <div class="bg-[#0c0b14]/50 px-5 py-4 flex items-center gap-2 border-b border-white/5 backdrop-blur-md">
+              <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+              <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+              <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+              <div class="mx-auto bg-white/5 rounded-md w-1/3 h-2 relative overflow-hidden">
+                <div class="absolute top-0 right-0 h-full w-1/2 bg-white/10"></div>
+              </div>
+            </div>
+            <!-- Window Body -->
+            <div class="p-8 relative bg-[#1a1828]/60 flex flex-col gap-6">
+              <!-- Feature 1: Web Dev -->
+              <div
+                class="flex items-center gap-5 transform group-hover:translate-x-2 transition-transform duration-300">
+                <div
+                  class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-primary text-2xl border border-primary/20 shadow-[0_0_15px_rgba(111,63,219,0.2)]">
+                  <i class="fas fa-code"></i>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-white font-bold text-lg mb-2" data-translate="service_web_title">تطوير الويب</h4>
+                  <div class="flex gap-2">
+                    <div class="h-2 bg-white/10 rounded-full w-3/4"></div>
+                    <div class="h-2 bg-primary/30 rounded-full w-1/4"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Feature 2: Apps -->
+              <div
+                class="flex items-center gap-5 transform group-hover:-translate-x-2 transition-transform duration-300 delay-75">
+                <div
+                  class="w-14 h-14 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 flex items-center justify-center text-secondary text-2xl border border-secondary/20 shadow-[0_0_15px_rgba(16,217,198,0.2)]">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-white font-bold text-lg mb-2" data-translate="service_apps_title">تطبيقات ذكية</h4>
+                  <div class="flex gap-2">
+                    <div class="h-2 bg-secondary/30 rounded-full w-1/3"></div>
+                    <div class="h-2 bg-white/10 rounded-full w-2/3"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Feature 3: Hosting & SEO -->
+              <div
+                class="flex items-center gap-5 transform group-hover:translate-x-2 transition-transform duration-300 delay-150">
+                <div
+                  class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#f1c40f]/20 to-[#f1c40f]/5 flex items-center justify-center text-[#f1c40f] text-2xl border border-[#f1c40f]/20 shadow-[0_0_15px_rgba(241,196,15,0.2)]">
+                  <i class="fas fa-server"></i>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-white font-bold text-lg mb-2" data-translate="service_hosting_title">استضافة آمنة</h4>
+                  <div class="h-2 bg-white/5 rounded-full overflow-hidden w-full relative">
+                    <div class="absolute top-0 right-0 h-full bg-gradient-to-r from-primary to-[#f1c40f] w-4/5"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating SEO Badge -->
+          <div
+            class="absolute -right-4 md:-right-8 top-12 card-glass px-4 py-3 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-primary/30 bg-[#0c0b14]/90 backdrop-blur-xl flex items-center gap-3 animate-bounce"
+            style="animation-duration: 4s;">
+            <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <div>
+              <div class="text-white font-bold text-sm leading-tight" data-translate="service_seo_title">تصدر النتائج
+              </div>
+              <div class="text-[#b0adc8] text-xs font-semibold">+200% Growth</div>
+            </div>
+          </div>
+
+          <!-- Floating Security Badge -->
+          <div
+            class="absolute -left-4 md:-left-8 bottom-16 card-glass px-4 py-3 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-secondary/30 bg-[#0c0b14]/90 backdrop-blur-xl flex items-center gap-3 animate-bounce"
+            style="animation-duration: 5s; animation-direction: reverse;">
+            <div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div>
+              <div class="text-white font-bold text-sm leading-tight">100% Secure</div>
+              <div class="text-[#b0adc8] text-xs font-semibold">Protection</div>
+            </div>
+          </div>
+
+          <!-- Background Glow -->
+          <div
+            class="absolute inset-0 bg-gradient-to-tr from-primary/40 via-transparent to-secondary/40 blur-[100px] -z-10 rounded-full pointer-events-none">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="py-20 scroll-mt bg-[#0f0e18] transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <span class="text-secondary font-bold transition-colors" data-translate="services_label">خدماتنا</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2 transition-colors"><span
+              data-translate="services_title_1">حلول متكاملة</span> <span class="text-primary"
+              data-translate="services_title_2">لرقمنة أعمالك</span></h2>
+          <div class="gradient-divider mt-4"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div id="service-hosting"
+            class="card-glass-dark p-6 rounded-3xl scroll-mt transition hover:border-primary/30">
+            <div class="service-icon"><i class="fas fa-server"></i></div>
+            <h3 class="text-xl font-bold mt-4 text-white transition-colors" data-translate="service_hosting_title">
+              الإستضافة</h3>
+            <p class="text-[#b0adc8] text-sm mt-2 transition-colors" data-translate="service_hosting_desc">خوادم عالية
+              الأداء، نسخ احتياطي، أمان متقدم.</p>
+            <a href="#contact" class="text-primary font-bold text-sm mt-4 inline-block"
+              data-translate="btn_request_service">اطلب الخدمة <i class="fas fa-arrow-left mr-1"></i></a>
+          </div>
+          <div id="service-apps" class="card-glass-dark p-6 rounded-3xl scroll-mt transition hover:border-primary/30">
+            <div class="service-icon sec"><i class="fas fa-mobile-alt"></i></div>
+            <h3 class="text-xl font-bold mt-4 text-white transition-colors" data-translate="service_apps_title">تطوير
+              التطبيقات</h3>
+            <p class="text-[#b0adc8] text-sm mt-2 transition-colors" data-translate="service_apps_desc">Android & iOS
+              بأناقة وسرعة، تجربة فريدة.</p>
+            <a href="#contact" class="text-primary font-bold text-sm mt-4 inline-block"
+              data-translate="btn_request_service">اطلب الخدمة <i class="fas fa-arrow-left mr-1"></i></a>
+          </div>
+          <div id="service-seo" class="card-glass-dark p-6 rounded-3xl scroll-mt transition hover:border-primary/30">
+            <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+            <h3 class="text-xl font-bold mt-4 text-white transition-colors" data-translate="service_seo_title">خدمات SEO
+            </h3>
+            <p class="text-[#b0adc8] text-sm mt-2 transition-colors" data-translate="service_seo_desc">تحسين محركات
+              البحث، ظهور متقدم، عملاء حقيقيون.</p>
+            <a href="#contact" class="text-primary font-bold text-sm mt-4 inline-block"
+              data-translate="btn_request_service">اطلب الخدمة <i class="fas fa-arrow-left mr-1"></i></a>
+          </div>
+          <div id="service-web" class="card-glass-dark p-6 rounded-3xl scroll-mt transition hover:border-primary/30">
+            <div class="service-icon sec"><i class="fas fa-laptop-code"></i></div>
+            <h3 class="text-xl font-bold mt-4 text-white transition-colors" data-translate="service_web_title">تطوير
+              الويب</h3>
+            <p class="text-[#b0adc8] text-sm mt-2 transition-colors" data-translate="service_web_desc">مواقع متجاوبة،
+              متاجر، بوابات بأحدث التقنيات.</p>
+            <a href="#contact" class="text-primary font-bold text-sm mt-4 inline-block"
+              data-translate="btn_request_service">اطلب الخدمة <i class="fas fa-arrow-left mr-1"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="py-20 scroll-mt bg-[#0c0b14] transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+        <div>
+          <span class="text-secondary font-bold transition-colors" data-translate="about_label">من نحن</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2 transition-colors"><span
+              data-translate="about_title_1">ثقة الزبون هي</span> <span class="text-primary"
+              data-translate="about_title_2">هدفنا</span></h2>
+          <p class="text-[#b0adc8] mt-4 leading-relaxed transition-colors" data-translate="about_desc">نحن نؤمن بأن
+            الإبداع هو مسألة الاختيار ، لذلك نأمل أن يساعد فريقنا في الوصول إلى حلمك ..</p>
+          <div class="mt-8 grid grid-cols-2 gap-6">
+            <div><span class="block text-3xl font-extrabold text-primary">15</span><span
+                class="text-[#9a96b0] transition-colors" data-translate="about_exp">سنة خبرة</span></div>
+            <div><span class="block text-3xl font-extrabold text-secondary">24/7</span><span
+                class="text-[#9a96b0] transition-colors" data-translate="about_support">دعم فني</span></div>
+            <div><span class="block text-3xl font-extrabold text-primary">❤️</span><span
+                class="text-[#9a96b0] transition-colors" data-translate="about_love">خدمة بحب</span></div>
+            <div><span class="block text-3xl font-extrabold text-secondary">🎯</span><span
+                class="text-[#9a96b0] transition-colors" data-translate="about_happy">سعادة العميل</span></div>
+          </div>
+        </div>
+        <div class="card-glass p-5 transition-colors">
+          <img src="https://placehold.co/600x400/1a1828/6f3fdb?text=%D8%B9%D9%86+963AD" alt="عن 963AD"
+            class="rounded-2xl w-full" onerror="this.src='https://placehold.co/600x400/1a1828/6f3fdb?text=963AD'">
+          <p class="text-sm text-[#9a96b0] mt-4 text-center transition-colors"><i
+              class="fas fa-quote-right text-primary ml-2"></i> <span data-translate="about_quote">نسعى لدعم وتضخيم
+              مشاريعك معاً.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TECH STACK ===== -->
+    <section class="py-16 bg-[#0c0b14] border-t border-b border-white/5 overflow-hidden transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="text-secondary font-bold transition-colors" data-translate="tech_label">التقنيات</span>
+          <h2 class="text-3xl font-extrabold text-white mt-2 transition-colors"><span
+              data-translate="tech_title_1">الأدوات التي نعتمد عليها لضمان</span> <span class="text-primary"
+              data-translate="tech_title_2">أفضل جودة</span></h2>
+          <div class="gradient-divider mt-4"></div>
+        </div>
+        <div class="tech-marquee mb-16" dir="ltr">
+          <div class="tech-track">
+            <div class="tech-badge"><i class="fab fa-html5 text-orange-500 text-2xl"></i> HTML / CSS</div>
+            <div class="tech-badge"><i class="fas fa-wind text-cyan-400 text-2xl"></i> Tailwind CSS</div>
+            <div class="tech-badge"><i class="fab fa-js text-yellow-400 text-2xl"></i> JavaScript</div>
+            <div class="tech-badge"><i class="fab fa-react text-blue-400 text-2xl"></i> React JS</div>
+            <div class="tech-badge"><i class="fas fa-n text-white text-2xl"></i> Next JS</div>
+            <div class="tech-badge"><i class="fab fa-php text-indigo-400 text-2xl"></i> PHP</div>
+            <div class="tech-badge"><i class="fab fa-laravel text-red-500 text-2xl"></i> Laravel</div>
+          </div>
+          <div class="tech-track">
+            <div class="tech-badge"><i class="fab fa-html5 text-orange-500 text-2xl"></i> HTML / CSS</div>
+            <div class="tech-badge"><i class="fas fa-wind text-cyan-400 text-2xl"></i> Tailwind CSS</div>
+            <div class="tech-badge"><i class="fab fa-js text-yellow-400 text-2xl"></i> JavaScript</div>
+            <div class="tech-badge"><i class="fab fa-react text-blue-400 text-2xl"></i> React JS</div>
+            <div class="tech-badge"><i class="fas fa-n text-white text-2xl"></i> Next JS</div>
+            <div class="tech-badge"><i class="fab fa-php text-indigo-400 text-2xl"></i> PHP</div>
+            <div class="tech-badge"><i class="fab fa-laravel text-red-500 text-2xl"></i> Laravel</div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+          <div class="card-glass-dark p-8 rounded-3xl border-primary/20 hover:border-primary/50 transition">
+            <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-3 transition-colors"><i
+                class="fas fa-desktop text-secondary"></i> <span data-translate="frontend_title">الواجهة الأمامية
+                (Front-end)</span></h3>
+            <p class="text-[#b0adc8] text-sm leading-relaxed mb-6 transition-colors" data-translate="frontend_desc">
+              نستخدم أحدث التقنيات لبرمجة واجهات مستخدم تفاعلية، سريعة التحميل، ومتجاوبة بالكامل مع جميع الشاشات.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-lg text-xs font-bold">HTML</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-lg text-xs font-bold">Tailwind CSS</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-lg text-xs font-bold">JS</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-lg text-xs font-bold">React JS</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-lg text-xs font-bold">Next JS</span>
+            </div>
+          </div>
+          <div class="card-glass-dark p-8 rounded-3xl border-secondary/20 hover:border-secondary/50 transition">
+            <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-3 transition-colors"><i
+                class="fas fa-server text-primary"></i> <span data-translate="backend_title">الواجهة الخلفية
+                (Back-end)</span></h3>
+            <p class="text-[#b0adc8] text-sm leading-relaxed mb-6 transition-colors" data-translate="backend_desc">نبني
+              أنظمة خلفية قوية وآمنة تتحمل الضغط العالي، مع لوحات تحكم مرنة لإدارة المحتوى.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-lg text-xs font-bold">PHP</span>
+              <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-lg text-xs font-bold">Laravel</span>
+              <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-lg text-xs font-bold">MySQL</span>
+              <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-lg text-xs font-bold">API Integration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== QUOTE REQUEST ===== -->
+    <section class="py-24 bg-[#0f0e18] transition-colors duration-300 relative overflow-hidden">
+      <!-- خلفية ديكورية -->
+      <div
+        class="absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none transform -translate-y-1/2">
+      </div>
+      <div
+        class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[100px] pointer-events-none">
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="card-glass-dark p-10 md:p-14 rounded-[40px] border border-white/5 transition-colors">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch h-full">
+            <div class="flex flex-col justify-center h-full">
+              <span class="text-secondary font-bold tracking-widest text-sm uppercase mb-2 block transition-colors">عرض
+                سعر</span>
+              <h3 class="text-4xl md:text-5xl font-extrabold text-white transition-colors mb-4"><span
+                  data-translate="quote_title_1">طلب</span> <span class="text-primary"
+                  data-translate="quote_title_2">عرض تسعير</span></h3>
+              <div class="gradient-divider ml-0 mb-6 w-20"></div>
+              <p class="text-[#b0adc8] text-lg leading-relaxed transition-colors mb-8" data-translate="quote_desc">
+                فريقنا سعيد للسماع منك ودعمك. املأ النموذج وسنرد عليك بأسرع وقت.</p>
+
+              <div class="flex flex-wrap gap-3">
+                <span
+                  class="bg-[#1a1828] px-5 py-2.5 rounded-full text-sm font-semibold text-[#c8c6d4] border border-white/5 transition-colors hover:border-primary/30 hover:text-white cursor-default"><i
+                    class="fas fa-server text-primary ml-2"></i><span data-translate="hosting">الإستضافة</span></span>
+                <span
+                  class="bg-[#1a1828] px-5 py-2.5 rounded-full text-sm font-semibold text-[#c8c6d4] border border-white/5 transition-colors hover:border-secondary/30 hover:text-white cursor-default"><i
+                    class="fas fa-globe text-secondary ml-2"></i><span data-translate="webdev">تطوير الويب</span></span>
+                <span
+                  class="bg-[#1a1828] px-5 py-2.5 rounded-full text-sm font-semibold text-[#c8c6d4] border border-white/5 transition-colors hover:border-primary/30 hover:text-white cursor-default"><i
+                    class="fas fa-search text-primary ml-2"></i><span data-translate="seo">SEO</span></span>
+                <span
+                  class="bg-[#1a1828] px-5 py-2.5 rounded-full text-sm font-semibold text-[#c8c6d4] border border-white/5 transition-colors hover:border-secondary/30 hover:text-white cursor-default"><i
+                    class="fab fa-android text-secondary ml-2"></i><span
+                    data-translate="android_ios">Android/IOS</span></span>
+              </div>
+            </div>
+
+            <div class="flex flex-col h-full">
+              <form class="space-y-6 flex-grow flex flex-col justify-center">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div class="relative group">
+                    <div
+                      class="absolute inset-y-0 right-0 flex items-center pr-5 pointer-events-none text-[#6a6780] group-focus-within:text-primary transition-colors">
+                      <i class="fas fa-user"></i>
+                    </div>
+                    <input type="text" placeholder="الاسم الكامل" required data-translate-placeholder="full_name"
+                      class="!pl-5 !pr-14 bg-[#1a1828] !border-white/5 hover:!border-white/10 focus:!border-primary focus:!ring-1 focus:!ring-primary rounded-2xl w-full h-16 text-white transition-all shadow-inner">
+                  </div>
+
+                  <div class="relative group">
+                    <div
+                      class="absolute inset-y-0 right-0 flex items-center pr-5 pointer-events-none text-[#6a6780] group-focus-within:text-secondary transition-colors">
+                      <i class="fas fa-envelope"></i>
+                    </div>
+                    <input type="email" placeholder="ايميلك" required data-translate-placeholder="email"
+                      class="!pl-5 !pr-14 bg-[#1a1828] !border-white/5 hover:!border-white/10 focus:!border-secondary focus:!ring-1 focus:!ring-secondary rounded-2xl w-full h-16 text-white transition-all shadow-inner">
+                  </div>
+                </div>
+
+                <div class="relative group">
+                  <div
+                    class="absolute inset-y-0 right-0 flex items-center pr-5 pointer-events-none text-[#6a6780] group-focus-within:text-primary transition-colors">
+                    <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <input type="tel" placeholder="رقم هاتفك" required data-translate-placeholder="phone"
+                    class="!pl-5 !pr-14 bg-[#1a1828] !border-white/5 hover:!border-white/10 focus:!border-primary focus:!ring-1 focus:!ring-primary rounded-2xl w-full h-16 text-white transition-all shadow-inner"
+                    dir="rtl">
+                </div>
+
+                <div class="relative group">
+                  <div
+                    class="absolute top-5 right-0 flex items-start pr-5 pointer-events-none text-[#6a6780] group-focus-within:text-secondary transition-colors">
+                    <i class="fas fa-comment-alt"></i>
+                  </div>
+                  <textarea rows="4" placeholder="رسالتك" required data-translate-placeholder="message"
+                    class="!pl-5 !pr-14 py-5 bg-[#1a1828] !border-white/5 hover:!border-white/10 focus:!border-secondary focus:!ring-1 focus:!ring-secondary rounded-2xl w-full text-white transition-all shadow-inner resize-none min-h-[140px]"></textarea>
+                </div>
+
+                <button type="submit"
+                  class="w-full bg-gradient-to-l from-primary via-primary to-secondary text-white font-bold text-lg py-5 rounded-2xl shadow-[0_10px_30px_-10px_rgba(111,63,219,0.5)] hover:shadow-[0_15px_40px_-10px_rgba(16,217,198,0.6)] transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 group relative overflow-hidden">
+                  <span
+                    class="absolute w-0 h-0 transition-all duration-500 ease-out bg-white rounded-full group-hover:w-full group-hover:h-56 opacity-10"></span>
+                  <i class="fas fa-paper-plane group-hover:animate-bounce"></i> <span
+                    data-translate="btn_send_quote">أرسل العرض</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GOAL + MISSION + HISTORY ===== -->
+    <section class="py-24 bg-[#0c0b14] transition-colors duration-300 relative overflow-hidden">
+      <!-- Decorative backgrounds -->
+      <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-[100px] pointer-events-none">
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+
+          <!-- Goal -->
+          <div
+            class="card-glass-dark p-10 rounded-[30px] border border-white/5 hover:-translate-y-2 transition-all duration-300 group flex flex-col relative overflow-hidden">
+            <div
+              class="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all z-0">
+            </div>
+            <div class="relative z-10 flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-2xl text-primary border border-primary/20 shadow-[0_0_15px_rgba(111,63,219,0.15)] group-hover:scale-110 transition-transform">
+                <i class="fas fa-bullseye"></i>
+              </div>
+              <h3 class="text-2xl font-extrabold text-white transition-colors" data-translate="goal_title">هدفنا</h3>
+            </div>
+            <p class="text-[#b0adc8] text-sm leading-relaxed transition-colors flex-grow" data-translate="goal_desc">
+              نسعى دائماً لتحقيق سعادة الزبون وبناء علاقة متينة تكبر مع الأيام.</p>
+          </div>
+
+          <!-- Mission -->
+          <div
+            class="card-glass-dark p-10 rounded-[30px] border border-white/5 hover:-translate-y-2 transition-all duration-300 group flex flex-col relative overflow-hidden">
+            <div
+              class="absolute -top-10 -right-10 w-32 h-32 bg-[#f1c40f]/10 rounded-full blur-2xl group-hover:bg-[#f1c40f]/20 transition-all z-0">
+            </div>
+            <div class="relative z-10 flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#f1c40f]/20 to-[#f1c40f]/5 flex items-center justify-center text-2xl text-[#f1c40f] border border-[#f1c40f]/20 shadow-[0_0_15px_rgba(241,196,15,0.15)] group-hover:scale-110 transition-transform">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <h3 class="text-2xl font-extrabold text-white transition-colors" data-translate="mission_title">رسالتنا
+              </h3>
+            </div>
+            <p class="text-[#b0adc8] text-sm leading-relaxed transition-colors flex-grow" data-translate="mission_desc">
+              نسعى لتقديم حلول تقنية متكاملة ومبتكرة تلبي تطلعات عملائنا وتسهم في نمو أعمالهم.</p>
+          </div>
+
+          <!-- History -->
+          <div
+            class="card-glass-dark p-10 rounded-[30px] border border-white/5 hover:-translate-y-2 transition-all duration-300 group flex flex-col relative overflow-hidden">
+            <div
+              class="absolute -top-10 -right-10 w-32 h-32 bg-secondary/10 rounded-full blur-2xl group-hover:bg-secondary/20 transition-all z-0">
+            </div>
+            <div class="relative z-10 flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 flex items-center justify-center text-2xl text-secondary border border-secondary/20 shadow-[0_0_15px_rgba(16,217,198,0.15)] group-hover:scale-110 transition-transform">
+                <i class="fas fa-history"></i>
+              </div>
+              <h3 class="text-2xl font-extrabold text-white transition-colors" data-translate="history_title">تاريخنا
+              </h3>
+            </div>
+            <p class="text-[#b0adc8] text-sm leading-relaxed transition-colors flex-grow" data-translate="history_desc">
+              خلال 15 عام سعادة الزبون كانت هدفنا واستمرارها على هذا المنوال هو مسؤوليتنا.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS (9 projects, 3 per row) ===== -->
+    <section id="projects" class="py-20 scroll-mt bg-[#0f0e18] transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-extrabold text-center text-white transition-colors"><span
+            data-translate="projects_title_1">بعض من</span> <span class="text-primary"
+            data-translate="projects_title_2">مشاريعنا</span></h2>
+        <div class="gradient-divider my-4"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+          <a href="https://ninevehautogo.com/ar" target="_blank" class="project-card block">
+            <img src="./images/project-1.png" alt="منصة نينوي"
+              onerror="this.src='https://placehold.co/300x180/1a1828/6f3fdb?text=%D9%86%D9%8A%D9%86%D9%88%D9%8A'">
+            <span class="block font-bold mt-2 text-white transition-colors" data-translate="project_1">منصة نينوي</span>
+            <span class="text-xs text-secondary">ninevehautogo.com</span>
+          </a>
+          <a href="https://7ajatna.com/ar" target="_blank" class="project-card block">
+            <img src="./images/project-2.png" alt="متجر حاجاتنا"
+              onerror="this.src='https://placehold.co/300x180/1a1828/10d9c6?text=%D8%AD%D8%A7%D8%AC%D8%A7%D8%AA%D9%86%D8%A7'">
+            <span class="block font-bold mt-2 text-white transition-colors" data-translate="project_2">متجر
+              حاجاتنا</span>
+            <span class="text-xs text-secondary">7ajatna.com</span>
+          </a>
+          <a href="https://supportad.sa/ar" target="_blank" class="project-card block">
+            <img src="./images/project-3.png" alt="منصة دعم الوطن"
+              onerror="this.src='https://placehold.co/300x180/1a1828/6f3fdb?text=%D8%AF%D8%B9%D9%85+%D8%A7%D9%84%D9%88%D8%B7%D9%86'">
+            <span class="block font-bold mt-2 text-white transition-colors" data-translate="project_3">منصة دعم
+              الوطن</span>
+            <span class="text-xs text-secondary">supportad.sa</span>
+          </a>
+          <a href="https://bmkcstructure.com/" target="_blank" class="project-card block">
+            <img src="./images/project-4.png" alt="شركة بشار قطامش"
+              onerror="this.src='https://placehold.co/300x180/1a1828/10d9c6?text=BMKC'">
+            <span class="block font-bold mt-2 text-white transition-colors" data-translate="project_4">شركة بشار
+              قطامش</span>
+            <span class="text-xs text-secondary">bmkcstructure.com</span>
+          </a>
+          <a href="https://dkaalnjazaldhaki.com/" target="_blank" class="project-card block">
+            <img src="./images/project-5.png" alt="شركة دقة الأنجاز الذكي"
+              onerror="this.src='https://placehold.co/300x180/1a1828/6f3fdb?text=%D8%AF%D9%82%D8%A9+%D8%A7%D9%84%D8%A7%D9%86%D8%AC%D8%A7%D8%B2'">
+            <span class="block font-bold mt-2 text-white transition-colors" data-translate="project_5">دقة الأنجاز
+              الذكي</span>
+            <span class="text-xs text-secondary">dkaalnjazaldhaki.com</span>
+          </a>
+          <a href="https://nemuchild.com/ar" target="_blank" class="project-card block">
+            <img src="./images/project-6.png" alt="موقع نمو"
+              onerror="this.src='https://placehold.co/300x180/1a1828/10d9c6?text=%D9%86%D9%85%D9%88'">
+            <span class="block font-bold mt-2 text-white transition-colors" data-translate="project_6">موقع نمو</span>
+            <span class="text-xs text-secondary">nemuchild.com</span>
+          </a>
+          <a href="https://ppros.com.sa/" target="_blank" class="project-card block">
+            <img src="./images/project-7.png" alt="محترفو الخصوصية"
+              onerror="this.src='https://placehold.co/300x180/1a1828/6f3fdb?text=PPROS'">
+            <span class="block font-bold mt-2 text-white transition-colors" data-translate="project_7">محترفو
+              الخصوصية</span>
+            <span class="text-xs text-secondary">ppros.com.sa</span>
+          </a>
+          <a href="https://koraticket.com/ar" target="_blank" class="project-card block">
+            <img src="./images/project-8.png" alt="كورة تكت"
+              onerror="this.src='https://placehold.co/300x180/1a1828/10d9c6?text=%D9%83%D9%88%D8%B1%D8%A9+%D8%AA%D9%83%D8%AA'">
+            <span class="block font-bold mt-2 text-white transition-colors" data-translate="project_8">كورة تكت</span>
+            <span class="text-xs text-secondary">koraticket.com</span>
+          </a>
+          <a href="https://lcm.com.sa/" target="_blank" class="project-card block">
+            <img src="./images/project-9.png" alt="مستشفى الرعاية الفاخرة"
+              onerror="this.src='https://placehold.co/300x180/1a1828/6f3fdb?text=LCM'">
+            <span class="block font-bold mt-2 text-white transition-colors" data-translate="project_9">الرعاية
+              الفاخرة</span>
+            <span class="text-xs text-secondary">lcm.com.sa</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section id="pricing" class="py-20 scroll-mt bg-[#0c0b14] transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <span class="text-secondary font-bold transition-colors" data-translate="pricing_label">باقاتنا</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2 transition-colors"><span
+              data-translate="pricing_title_1">باقات</span> <span class="text-primary"
+              data-translate="pricing_title_2">تناسب احتياجاتك</span></h2>
+          <div class="gradient-divider mt-4"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mt-10">
+          <div
+            class="card-glass-dark p-8 rounded-3xl text-center border-white/5 flex flex-col justify-between transition-colors">
+            <div>
+              <h3 class="text-xl font-bold text-white transition-colors" data-translate="pricing_basic_title">موقع
+                تعريفي</h3>
+              <p class="text-[#9a96b0] text-sm mt-2 mb-6 transition-colors" data-translate="pricing_basic_desc">مثالي
+                للأفراد والشركات الناشئة لعرض خدماتهم</p>
+              <ul class="space-y-4 text-sm text-[#b0adc8] text-right mb-8 transition-colors">
+                <li><i class="fas fa-check text-secondary ml-2"></i> <span data-translate="pricing_basic_1">تصميم واجهة
+                    هبوط جذابة</span></li>
+                <li><i class="fas fa-check text-secondary ml-2"></i> <span data-translate="pricing_basic_2">متجاوب
+                    تماماً مع الهاتف الذكي</span></li>
+                <li><i class="fas fa-check text-secondary ml-2"></i> <span data-translate="pricing_basic_3">نموذج تواصل
+                    مباشر</span></li>
+                <li><i class="fas fa-check text-secondary ml-2"></i> <span data-translate="pricing_basic_4">ربط أزرار
+                    التواصل الاجتماعي</span></li>
+              </ul>
+            </div>
+            <a href="#contact" class="btn-outline-primary block w-full py-3 rounded-xl font-bold transition"
+              data-translate="btn_order_now">اطلب الآن</a>
+          </div>
+          <div
+            class="card-glass-dark p-8 rounded-3xl text-center pricing-popular flex flex-col justify-between transition-colors">
+            <div>
+              <h3 class="text-xl font-bold text-white transition-colors" data-translate="pricing_pro_title">موقع شركة
+                متكامل</h3>
+              <p class="text-[#9a96b0] text-sm mt-2 mb-6 transition-colors" data-translate="pricing_pro_desc">مثالي
+                للمؤسسات لعرض الخدمات بطريقة احترافية</p>
+              <ul class="space-y-4 text-sm text-white text-right mb-8 font-semibold">
+                <li><i class="fas fa-check text-secondary ml-2"></i> <span data-translate="pricing_pro_1">صفحات متعددة
+                    (رئيسية، خدمات، عنا، تواصل)</span></li>
+                <li><i class="fas fa-check text-secondary ml-2"></i> <span data-translate="pricing_pro_2">لوحة تحكم
+                    مخصصة لإدارة المحتوى</span></li>
+                <li><i class="fas fa-check text-secondary ml-2"></i> <span data-translate="pricing_pro_3">دعم تعدد
+                    اللغات (عربي / إنجليزي)</span></li>
+                <li><i class="fas fa-check text-secondary ml-2"></i> <span data-translate="pricing_pro_4">تحسين أساسي
+                    لمحركات البحث (SEO)</span></li>
+              </ul>
+            </div>
+            <a href="#contact"
+              class="btn-primary block w-full py-3 rounded-xl font-bold shadow-lg shadow-primary/30 transition"
+              data-translate="btn_order_now">اطلب الآن</a>
+          </div>
+          <div
+            class="card-glass-dark p-8 rounded-3xl text-center border-white/5 flex flex-col justify-between transition-colors">
+            <div>
+              <h3 class="text-xl font-bold text-white transition-colors" data-translate="pricing_ecom_title">متجر
+                إلكتروني</h3>
+              <p class="text-[#9a96b0] text-sm mt-2 mb-6 transition-colors" data-translate="pricing_ecom_desc">للتجارة
+                الإلكترونية وبيع المنتجات عبر الإنترنت</p>
+              <ul class="space-y-4 text-sm text-[#b0adc8] text-right mb-8 transition-colors">
+                <li><i class="fas fa-check text-secondary ml-2"></i> <span data-translate="pricing_ecom_1">نظام إدارة
+                    منتجات وطلبات متقدم</span></li>
+                <li><i class="fas fa-check text-secondary ml-2"></i> <span data-translate="pricing_ecom_2">ربط مع بوابات
+                    الدفع الإلكتروني</span></li>
+                <li><i class="fas fa-check text-secondary ml-2"></i> <span data-translate="pricing_ecom_3">سلة مشتريات
+                    وتجربة شراء سلسة</span></li>
+                <li><i class="fas fa-check text-secondary ml-2"></i> <span data-translate="pricing_ecom_4">لوحة تحكم
+                    شاملة للمبيعات</span></li>
+              </ul>
+            </div>
+            <a href="#contact" class="btn-outline-primary block w-full py-3 rounded-xl font-bold transition"
+              data-translate="btn_order_now">اطلب الآن</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="py-24 bg-[#0f0e18] transition-colors duration-300 relative overflow-hidden">
+      <!-- Decorative backgrounds -->
+      <div class="absolute top-1/4 left-0 w-72 h-72 bg-secondary/10 rounded-full blur-[100px] pointer-events-none">
+      </div>
+      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none">
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <span class="text-secondary font-bold tracking-widest text-sm uppercase transition-colors block mb-2"
+            data-translate="testimonials_label">آراء العملاء</span>
+          <h2 class="text-4xl md:text-5xl font-extrabold text-white mt-2 transition-colors"><span
+              data-translate="testimonials_title_1">ماذا يقول</span> <span class="text-primary"
+              data-translate="testimonials_title_2">عملاؤنا</span></h2>
+          <div class="gradient-divider mt-6 mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div
+            class="card-glass-dark p-10 rounded-[30px] border border-white/5 hover:-translate-y-2 transition-all duration-300 group flex flex-col h-full relative">
+            <div
+              class="absolute -top-6 -right-4 text-7xl text-primary/10 group-hover:text-primary/20 transition-colors z-0">
+              <i class="fas fa-quote-right"></i></div>
+            <div class="relative z-10 flex-grow">
+              <div class="flex gap-1 text-[#f1c40f] text-sm mb-6">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="text-[#b0adc8] text-lg leading-relaxed mb-8 transition-colors font-medium"
+                data-translate="testimonial_1">"تعاملت مع العديد من شركات البرمجة، ولكن 963AD قدمت لي مستوى مختلف من
+                الاحترافية والسرعة في التنفيذ."</p>
+            </div>
+            <div class="flex items-center gap-4 mt-auto pt-6 border-t border-white/10 relative z-10">
+              <div class="relative">
+                <img
+                  src="https://ui-avatars.com/api/?name=%D8%A3%D8%AD%D9%85%D8%AF+%D8%B9%D9%84%D9%8A&background=6f3fdb&color=fff"
+                  alt="أحمد علي" class="w-14 h-14 rounded-full border-2 border-primary/50 p-0.5">
+                <div
+                  class="absolute -bottom-1 -right-1 w-5 h-5 bg-[#25D366] rounded-full border-2 border-[#141224] flex items-center justify-center text-[10px] text-white">
+                  <i class="fas fa-check"></i></div>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-lg transition-colors" data-translate="testimonial_1_name">أحمد علي
+                </h4>
+                <span class="text-secondary text-sm font-semibold block mt-0.5" data-translate="testimonial_1_role">مدير
+                  تسويق</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div
+            class="card-glass-dark p-10 rounded-[30px] border border-white/5 hover:-translate-y-2 transition-all duration-300 group flex flex-col h-full relative">
+            <div
+              class="absolute -top-6 -right-4 text-7xl text-secondary/10 group-hover:text-secondary/20 transition-colors z-0">
+              <i class="fas fa-quote-right"></i></div>
+            <div class="relative z-10 flex-grow">
+              <div class="flex gap-1 text-[#f1c40f] text-sm mb-6">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="text-[#b0adc8] text-lg leading-relaxed mb-8 transition-colors font-medium"
+                data-translate="testimonial_2">"فريق الدعم الفني متجاوب جداً وعلى مدار الساعة. استضافة الموقع سريعة
+                للغاية وتحسين SEO كان له أثر كبير في زيادة مبيعاتنا."</p>
+            </div>
+            <div class="flex items-center gap-4 mt-auto pt-6 border-t border-white/10 relative z-10">
+              <div class="relative">
+                <img
+                  src="https://ui-avatars.com/api/?name=%D8%B3%D8%A7%D8%B1%D8%A9+%D8%A3%D8%AD%D9%85%D8%AF&background=10d9c6&color=fff"
+                  alt="سارة أحمد" class="w-14 h-14 rounded-full border-2 border-secondary/50 p-0.5">
+                <div
+                  class="absolute -bottom-1 -right-1 w-5 h-5 bg-[#25D366] rounded-full border-2 border-[#141224] flex items-center justify-center text-[10px] text-white">
+                  <i class="fas fa-check"></i></div>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-lg transition-colors" data-translate="testimonial_2_name">سارة أحمد
+                </h4>
+                <span class="text-primary text-sm font-semibold block mt-0.5" data-translate="testimonial_2_role">صاحبة
+                  متجر</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div
+            class="card-glass-dark p-10 rounded-[30px] border border-white/5 hover:-translate-y-2 transition-all duration-300 group flex flex-col h-full relative">
+            <div
+              class="absolute -top-6 -right-4 text-7xl text-primary/10 group-hover:text-primary/20 transition-colors z-0">
+              <i class="fas fa-quote-right"></i></div>
+            <div class="relative z-10 flex-grow">
+              <div class="flex gap-1 text-[#f1c40f] text-sm mb-6">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="text-[#b0adc8] text-lg leading-relaxed mb-8 transition-colors font-medium"
+                data-translate="testimonial_3">"تصميم التطبيق كان مذهلاً وواجهة المستخدم سهلة ومريحة. تجربة العمل مع
+                963AD كانت ممتازة وسأقوم بالعمل معهم في مشاريعي القادمة."</p>
+            </div>
+            <div class="flex items-center gap-4 mt-auto pt-6 border-t border-white/10 relative z-10">
+              <div class="relative">
+                <img
+                  src="https://ui-avatars.com/api/?name=%D9%85%D8%AD%D9%85%D8%AF+%D8%B3%D8%B9%D9%8A%D8%AF&background=6f3fdb&color=fff"
+                  alt="محمد سعيد" class="w-14 h-14 rounded-full border-2 border-primary/50 p-0.5">
+                <div
+                  class="absolute -bottom-1 -right-1 w-5 h-5 bg-[#25D366] rounded-full border-2 border-[#141224] flex items-center justify-center text-[10px] text-white">
+                  <i class="fas fa-check"></i></div>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-lg transition-colors" data-translate="testimonial_3_name">محمد سعيد
+                </h4>
+                <span class="text-secondary text-sm font-semibold block mt-0.5" data-translate="testimonial_3_role">مؤسس
+                  تطبيق</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ACHIEVEMENTS ===== -->
+    <section class="py-24 bg-[#0c0b14] transition-colors duration-300 relative overflow-hidden">
+      <!-- Decorative backgrounds -->
+      <div
+        class="absolute top-0 right-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px] pointer-events-none">
+      </div>
+      <div
+        class="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[120px] pointer-events-none">
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <span class="text-secondary font-bold tracking-widest text-sm uppercase transition-colors mb-2 block"
+            data-translate="achievements_label">أرقام نفخر بها</span>
+          <h2 class="text-4xl md:text-5xl font-extrabold text-white transition-colors"><span
+              data-translate="achievements_title_1">أبرز</span> <span class="text-primary"
+              data-translate="achievements_title_2">إنجازاتنا</span></h2>
+          <div class="gradient-divider mt-6 mx-auto"></div>
+          <p class="text-[#b0adc8] mt-4 max-w-2xl mx-auto text-lg transition-colors" data-translate="achievements_desc">
+            خلال سنوات عملنا، تمكنا من بناء شراكات قوية وتحقيق نتائج ملموسة، ونحن فخورون بمشاركة هذه الأرقام التي تعكس
+            نجاحنا.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Achievement 1 -->
+          <div
+            class="card-glass-dark p-10 rounded-[30px] border border-white/5 hover:-translate-y-2 transition-all duration-300 text-center group">
+            <div
+              class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-4xl text-primary shadow-[0_0_20px_rgba(111,63,219,0.2)] mb-6 group-hover:scale-110 transition-transform duration-300 border border-primary/20">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <span class="block text-5xl font-extrabold mb-2 text-primary">+600</span>
+            <span class="text-[#b0adc8] text-lg font-semibold transition-colors"
+              data-translate="achievement_projects">مشاريع مكتملة</span>
+          </div>
+
+          <!-- Achievement 2 -->
+          <div
+            class="card-glass-dark p-10 rounded-[30px] border border-white/5 hover:-translate-y-2 transition-all duration-300 text-center group">
+            <div
+              class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 flex items-center justify-center text-4xl text-secondary shadow-[0_0_20px_rgba(16,217,198,0.2)] mb-6 group-hover:scale-110 transition-transform duration-300 border border-secondary/20">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <span class="block text-5xl font-extrabold mb-2 text-secondary">+225</span>
+            <span class="text-[#b0adc8] text-lg font-semibold transition-colors"
+              data-translate="achievement_clients">عملاء سعداء</span>
+          </div>
+
+          <!-- Achievement 3 -->
+          <div
+            class="card-glass-dark p-10 rounded-[30px] border border-white/5 hover:-translate-y-2 transition-all duration-300 text-center group">
+            <div
+              class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center text-4xl text-white shadow-[0_0_20px_rgba(255,255,255,0.05)] mb-6 group-hover:scale-110 transition-transform duration-300 border border-white/10">
+              <i class="fas fa-award text-primary"></i>
+            </div>
+            <span class="block text-5xl font-extrabold mb-2 text-white">+15</span>
+            <span class="text-[#b0adc8] text-lg font-semibold transition-colors"
+              data-translate="achievement_years">سنوات الخبرة</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="py-20 bg-[#0f0e18] transition-colors duration-300">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-extrabold text-white transition-colors"><span
+              data-translate="faq_title_1">الأسئلة</span> <span class="text-primary"
+              data-translate="faq_title_2">الشائعة</span></h2>
+          <div class="gradient-divider mt-4"></div>
+        </div>
+        <div class="space-y-2">
+          <div class="faq-item active">
+            <div class="faq-question"><span data-translate="faq_q1">كم يستغرق بناء موقع ويب تعريفي لشركتي؟</span><i
+                class="fas fa-chevron-down faq-icon"></i></div>
+            <div class="faq-answer" data-translate="faq_a1">يختلف الوقت حسب حجم الموقع والمتطلبات الخاصة، ولكن بشكل عام
+              يستغرق الموقع التعريفي المكون من 5 صفحات ما بين أسبوع إلى أسبوعين من العمل المتواصل لضمان الجودة والتصميم
+              المتجاوب.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><span data-translate="faq_q2">هل تقدمون خدمات الاستضافة مع تصميم الموقع؟</span><i
+                class="fas fa-chevron-down faq-icon"></i></div>
+            <div class="faq-answer" data-translate="faq_a2">نعم بالتأكيد! نحن نوفر باقات متكاملة تشمل تصميم الموقع
+              وبرمجته بالإضافة إلى استضافة سحابية سريعة وآمنة مع دومين مجاني وشهادة SSL للسنة الأولى.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><span data-translate="faq_q3">ما هي التقنيات التي تستخدمونها في برمجة
+                التطبيقات؟</span><i class="fas fa-chevron-down faq-icon"></i></div>
+            <div class="faq-answer" data-translate="faq_a3">نحن نعتمد على أحدث التقنيات لضمان أفضل أداء. نستخدم عادةً
+              React Native أو Flutter لبرمجة التطبيقات التي تعمل على نظامي Android و iOS بكود برمجي واحد وبجودة Native.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><span data-translate="faq_q4">هل يوجد دعم فني بعد تسليم المشروع؟</span><i
+                class="fas fa-chevron-down faq-icon"></i></div>
+            <div class="faq-answer" data-translate="faq_a4">نعم، نقدم دعم فني مجاني لمدة شهر بعد تسليم المشروع لضمان عمل
+              كل شيء بشكل مثالي، ويمكنك الاشتراك في باقات الدعم الفني والصيانة السنوية.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT + MAP ===== -->
+    <section id="contact" class="py-24 scroll-mt relative overflow-hidden bg-[#0c0b14] transition-colors duration-300">
+      <div
+        class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none">
+      </div>
+      <div
+        class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] pointer-events-none">
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <span class="text-secondary font-bold tracking-widest text-sm uppercase transition-colors"
+            data-translate="contact_label">تواصل معنا</span>
+          <h2 class="text-4xl md:text-5xl font-extrabold text-white mt-3 transition-colors"><span
+              data-translate="contact_title_1">نحن هنا</span> <span class="text-primary"
+              data-translate="contact_title_2">لمساعدتك</span></h2>
+          <div class="gradient-divider mt-6"></div>
+          <p class="text-[#b0adc8] mt-4 max-w-2xl mx-auto text-lg transition-colors" data-translate="contact_desc">
+            فريقنا متاح للرد على جميع استفساراتك وتحويل أفكارك إلى واقع ملموس.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 items-stretch">
+
+          <!-- معلومات الاتصال -->
+          <div class="lg:col-span-2 flex flex-col gap-6 h-full">
+            <div
+              class="card-glass-dark p-8 rounded-3xl border-l-4 border-l-primary hover:-translate-y-2 transition-transform duration-300">
+              <div class="flex items-center gap-5">
+                <div
+                  class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-3xl text-primary shadow-[0_0_20px_rgba(111,63,219,0.2)]">
+                  <i class="fas fa-headset"></i>
+                </div>
+                <div>
+                  <h4 class="text-[#9a96b0] font-semibold text-sm mb-1 transition-colors"
+                    data-translate="contact_phone_label">اتصل بنا مباشرة</h4>
+                  <p class="text-2xl font-extrabold text-white" dir="ltr">+963 938 012 841</p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="card-glass-dark p-8 rounded-3xl border-l-4 border-l-secondary hover:-translate-y-2 transition-transform duration-300">
+              <div class="flex items-center gap-5">
+                <div
+                  class="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 flex items-center justify-center text-3xl text-secondary shadow-[0_0_20px_rgba(16,217,198,0.2)]">
+                  <i class="fas fa-envelope-open-text"></i>
+                </div>
+                <div>
+                  <h4 class="text-[#9a96b0] font-semibold text-sm mb-1 transition-colors"
+                    data-translate="contact_email_label">راسلنا عبر الإيميل</h4>
+                  <p class="text-xl font-bold text-white">info@963ad.net</p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="card-glass-dark p-8 rounded-3xl border-l-4 border-l-white/20 hover:-translate-y-2 transition-transform duration-300 flex-grow flex flex-col">
+              <div class="flex items-center gap-5 mb-5">
+                <div
+                  class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-3xl text-white shadow-[0_0_20px_rgba(255,255,255,0.05)]">
+                  <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <div>
+                  <h4 class="text-[#9a96b0] font-semibold text-sm mb-1 transition-colors"
+                    data-translate="contact_address_label">موقعنا</h4>
+                  <p class="text-lg font-bold text-white" data-translate="contact_address">سوريا، دمشق، المزة</p>
+                </div>
+              </div>
+              <div class="mt-auto w-full h-48 rounded-2xl overflow-hidden border border-white/10 relative group">
+                <div
+                  class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none">
+                </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53259.97002142466!2d36.25955229565706!3d33.45586807757983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1519211a09c206e5%3A0xaae73cc577394b97!2sPurple%20Art%20Agency!5e0!3m2!1sar!2seg!4v1781964948880!5m2!1sar!2seg"
+                  style="border:0; width:100%; height:100%;" allowfullscreen="" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  class="relative z-0 grayscale contrast-125 opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- نموذج الاتصال -->
+          <div class="lg:col-span-3 flex flex-col h-full">
+            <div
+              class="card-glass p-10 md:p-14 rounded-[40px] relative overflow-hidden flex-grow flex flex-col justify-center transition-colors">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px]"></div>
+              <div class="absolute bottom-0 left-0 w-40 h-40 bg-secondary/20 blur-[60px]"></div>
+
+              <div class="relative z-10">
+                <h3 class="text-3xl font-bold text-white mb-8 transition-colors"><span
+                    data-translate="contact_form_title">أرسل رسالة</span> <span class="text-primary"
+                    data-translate="contact_form_title_highlight">مباشرة</span></h3>
+
+                <form class="space-y-6">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="relative group">
+                      <div
+                        class="absolute inset-y-0 right-0 flex items-center pr-5 pointer-events-none text-[#6a6780] group-focus-within:text-primary transition-colors">
+                        <i class="fas fa-user"></i>
+                      </div>
+                      <input type="text" placeholder="الاسم الكامل" required
+                        class="!pl-5 !pr-14 bg-[#141224]/80 backdrop-blur-md !border-white/10 hover:!border-white/20 focus:!border-primary focus:!ring-1 focus:!ring-primary rounded-2xl w-full h-16 text-white transition-all shadow-inner"
+                        data-translate-placeholder="full_name">
+                    </div>
+
+                    <div class="relative group">
+                      <div
+                        class="absolute inset-y-0 right-0 flex items-center pr-5 pointer-events-none text-[#6a6780] group-focus-within:text-secondary transition-colors">
+                        <i class="fas fa-envelope"></i>
+                      </div>
+                      <input type="email" placeholder="البريد الإلكتروني" required
+                        class="!pl-5 !pr-14 bg-[#141224]/80 backdrop-blur-md !border-white/10 hover:!border-white/20 focus:!border-secondary focus:!ring-1 focus:!ring-secondary rounded-2xl w-full h-16 text-white transition-all shadow-inner"
+                        data-translate-placeholder="email">
+                    </div>
+                  </div>
+
+                  <div class="relative group">
+                    <div
+                      class="absolute inset-y-0 right-0 flex items-center pr-5 pointer-events-none text-[#6a6780] group-focus-within:text-primary transition-colors">
+                      <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <input type="tel" placeholder="رقم الهاتف" required
+                      class="!pl-5 !pr-14 bg-[#141224]/80 backdrop-blur-md !border-white/10 hover:!border-white/20 focus:!border-primary focus:!ring-1 focus:!ring-primary rounded-2xl w-full h-16 text-white transition-all shadow-inner"
+                      dir="rtl" data-translate-placeholder="phone">
+                  </div>
+
+                  <div class="relative group">
+                    <div
+                      class="absolute top-5 right-0 flex items-start pr-5 pointer-events-none text-[#6a6780] group-focus-within:text-secondary transition-colors">
+                      <i class="fas fa-comment-alt"></i>
+                    </div>
+                    <textarea rows="4" placeholder="اكتب تفاصيل مشروعك أو استفسارك هنا..." required
+                      class="!pl-5 !pr-14 py-5 bg-[#141224]/80 backdrop-blur-md !border-white/10 hover:!border-white/20 focus:!border-secondary focus:!ring-1 focus:!ring-secondary rounded-2xl w-full text-white transition-all shadow-inner resize-none min-h-[140px]"
+                      data-translate-placeholder="message_details"></textarea>
+                  </div>
+
+                  <button type="submit"
+                    class="w-full bg-gradient-to-l from-primary via-primary to-secondary text-white font-bold text-lg py-5 rounded-2xl shadow-[0_10px_30px_-10px_rgba(111,63,219,0.5)] hover:shadow-[0_15px_40px_-10px_rgba(16,217,198,0.6)] transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 group relative overflow-hidden">
+                    <span
+                      class="absolute w-0 h-0 transition-all duration-500 ease-out bg-white rounded-full group-hover:w-full group-hover:h-56 opacity-10"></span>
+                    <i class="fas fa-paper-plane group-hover:animate-bounce"></i> <span
+                      data-translate="btn_send_now">إرسال الطلب الآن</span>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-[#08070e] border-t border-white/5 pt-16 pb-8 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center gap-2"><span
+            class="text-white text-xl font-extrabold transition-colors">963AD</span></div>
+        <p class="text-sm text-[#9a96b0] mt-4 transition-colors" data-translate="footer_desc">تم إنشاء 963ad في عام 2018
+          لتوفير خدمات تطوير المواقع والاستضافة وخدمات تحسين محركات البحث (SEO) للأعمال</p>
+        <div class="flex gap-4 mt-6 text-xl text-[#9a96b0]">
+          <a href="https://www.facebook.com/PurpleArtAgency" target="_blank" class="hover:text-secondary transition-colors" aria-label="Facebook">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://x.com/AgencyPurple" target="_blank" class="hover:text-secondary transition-colors" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/purple_art_agency/?hl=en" target="_blank" class="hover:text-secondary transition-colors" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.pinterest.com/purpleartagency/" target="_blank" class="hover:text-secondary transition-colors" aria-label="Pinterest">
+            <i class="fab fa-pinterest"></i>
+          </a>
+          <a href="https://www.behance.net/purplearta623b" target="_blank" class="hover:text-secondary transition-colors" aria-label="Behance">
+            <i class="fab fa-behance"></i>
+          </a>
+        </div>
+      </div>
+      <div class="md:col-span-2">
+        <h4 class="text-white font-bold mb-4 transition-colors" data-translate="footer_quick_links">روابط سريعة</h4>
+        <div class="grid grid-cols-2 gap-4">
+          <ul class="space-y-2">
+            <li><a href="#" class="footer-link transition-colors" data-translate="home">الرئيسية</a></li>
+            <li><a href="#about" class="footer-link transition-colors" data-translate="about">من نحن</a></li>
+            <li><a href="#services" class="footer-link transition-colors" data-translate="services">خدماتنا</a></li>
+          </ul>
+          <ul class="space-y-2">
+            <li><a href="#pricing" class="footer-link transition-colors" data-translate="pricing">الأسعار</a></li>
+            <li><a href="#projects" class="footer-link transition-colors" data-translate="projects">مشاريعنا</a></li>
+            <li><a href="#contact" class="footer-link transition-colors" data-translate="contact">تواصل معنا</a></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-4 transition-colors" data-translate="footer_contact_info">معلومات التواصل
+        </h4>
+        <ul class="space-y-3 text-sm text-[#b0adc8] transition-colors">
+          <li><i class="fas fa-map-marker-alt text-secondary ml-2"></i> <span data-translate="footer_address">Syria,
+              Damascus, West Mazah B57</span></li>
+          <li><i class="fas fa-envelope text-secondary ml-2"></i> info@963ad.net</li>
+          <li><i class="fas fa-phone text-secondary ml-2"></i> +963 938 012 841</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 mt-12 pt-6 text-center text-sm text-[#6a6780] transition-colors"> 2019 963Ad.
+      All Rights Reserved by 963AD</div>
+  </footer>
+
+  <!-- scripts: mobile toggle, FAQ accordion, translations, theme -->
+  <script>
+    // Mobile Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', function () {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking any link inside it
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+
+    // ===== TRANSLATION DATA =====
+    const translations = {
+      ar: {
+        home: 'الرئيسية', about: 'عن شركتنا', services: 'خدماتنا', pricing: 'الأسعار', projects: 'مشاريعنا', contact: 'تواصل معنا',
+        hosting: 'الاستضافة', apps: 'تطوير التطبيقات', seo: 'خدمات SEO', webdev: 'تطوير الويب',
+        hero_badge: '#حلول_رقمية_متكاملة',
+        hero_title_1: 'نحول أفكارك', hero_title_2: 'إلى واقع رقمي', hero_title_3: 'أفضل الحلول', hero_title_4: 'التقنية',
+        hero_desc: 'نقدم لك باقة متكاملة من الخدمات الرقمية تشمل تطوير المواقع، برمجة التطبيقات، خدمات SEO، والاستضافة السحابية الآمنة لضمان نجاح أعمالك.',
+        btn_request: 'اطلب الخدمة الآن', btn_plans: 'استكشف خدماتنا',
+        cloud_hosting: 'استضافة سحابية', advanced_security: 'حماية متقدمة',
+        services_label: 'خدماتنا',
+        services_title_1: 'حلول متكاملة', services_title_2: 'لرقمنة أعمالك',
+        service_hosting_title: 'الإستضافة', service_hosting_desc: 'خوادم عالية الأداء، نسخ احتياطي، أمان متقدم.',
+        service_apps_title: 'تطوير التطبيقات', service_apps_desc: 'Android & iOS بأناقة وسرعة، تجربة فريدة.',
+        service_seo_title: 'خدمات SEO', service_seo_desc: 'تحسين محركات البحث، ظهور متقدم، عملاء حقيقيون.',
+        service_web_title: 'تطوير الويب', service_web_desc: 'مواقع متجاوبة، متاجر، بوابات بأحدث التقنيات.',
+        btn_request_service: 'اطلب الخدمة',
+        about_label: 'من نحن', about_title_1: 'ثقة الزبون هي', about_title_2: 'هدفنا',
+        about_desc: 'نحن نؤمن بأن الإبداع هو مسألة الاختيار ، لذلك نأمل أن يساعد فريقنا في الوصول إلى حلمك ..',
+        about_exp: 'سنة خبرة', about_support: 'دعم فني', about_love: 'خدمة بحب', about_happy: 'سعادة العميل',
+        about_quote: 'نسعى لدعم وتضخيم مشاريعك معاً.',
+        tech_label: 'التقنيات', tech_title_1: 'الأدوات التي نعتمد عليها لضمان', tech_title_2: 'أفضل جودة',
+        frontend_title: 'الواجهة الأمامية (Front-end)', frontend_desc: 'نستخدم أحدث التقنيات لبرمجة واجهات مستخدم تفاعلية، سريعة التحميل، ومتجاوبة بالكامل مع جميع الشاشات.',
+        backend_title: 'الواجهة الخلفية (Back-end)', backend_desc: 'نبني أنظمة خلفية قوية وآمنة تتحمل الضغط العالي، مع لوحات تحكم مرنة لإدارة المحتوى.',
+        quote_title_1: 'طلب', quote_title_2: 'عرض تسعير', quote_desc: 'فريقنا سعيد للسماع منك ودعمك. املأ النموذج وسنرد عليك بأسرع وقت.',
+        android_ios: 'Android/IOS', btn_send_quote: 'أرسل العرض',
+        full_name: 'الاسم الكامل', email: 'ايميلك', phone: 'رقم هاتفك', message: 'رسالتك',
+        goal_title: 'هدفنا', goal_desc: 'هدفنا الأول والأساسي هو تحقيق سعادة عملائنا وبناء علاقة متينة مبنية على الثقة والاحترافية، تنمو وتتطور مع مرور الأيام. نحن نؤمن بأن نجاحنا يقاس بمدى رضا شركاء النجاح عن الخدمات التي نقدمها، ونسعى دوماً للوصول إلى أعلى مستويات الجودة.',
+        mission_title: 'رسالتنا', mission_desc: 'تتمثل رسالتنا في تقديم حلول تقنية ورقمية متكاملة ومبتكرة تلبي تطلعات عملائنا وتتجاوز توقعاتهم. نعمل بشغف وإبداع لتسخير أحدث التكنولوجيا في خدمة نمو أعمالهم، لنكون الخيار الأول والداعم الأقوى لكل من يطمح للتميز في العصر الرقمي.',
+        history_title: 'تاريخنا', history_desc: 'على مدار 15 عاماً من العمل الجاد والمستمر، كانت سعادة زبائننا ونجاح مشاريعهم هي البوصلة التي توجهنا. لقد بنينا تاريخاً حافلاً بالإنجازات والشراكات الناجحة، ونعتبر استمرار هذا الإرث والارتقاء به مسؤوليتنا الدائمة تجاه كل عميل يضع ثقته بنا.',
+        projects_title_1: 'بعض من', projects_title_2: 'مشاريعنا',
+        project_1: 'منصة نينوي', project_2: 'متجر حاجاتنا', project_3: 'منصة دعم الوطن',
+        project_4: 'شركة بشار قطامش', project_5: 'دقة الأنجاز الذكي', project_6: 'موقع نمو',
+        project_7: 'محترفو الخصوصية', project_8: 'كورة تكت', project_9: 'الرعاية الفاخرة',
+        pricing_label: 'باقاتنا', pricing_title_1: 'باقات', pricing_title_2: 'تناسب احتياجاتك',
+        pricing_basic_title: 'موقع تعريفي', pricing_basic_desc: 'مثالي للأفراد والشركات الناشئة لعرض خدماتهم',
+        pricing_basic_1: 'تصميم واجهة هبوط جذابة', pricing_basic_2: 'متجاوب تماماً مع الهاتف الذكي', pricing_basic_3: 'نموذج تواصل مباشر', pricing_basic_4: 'ربط أزرار التواصل الاجتماعي',
+        pricing_pro_title: 'موقع شركة متكامل', pricing_pro_desc: 'مثالي للمؤسسات لعرض الخدمات بطريقة احترافية',
+        pricing_pro_1: 'صفحات متعددة (رئيسية، خدمات، عنا، تواصل)', pricing_pro_2: 'لوحة تحكم مخصصة لإدارة المحتوى', pricing_pro_3: 'دعم تعدد اللغات (عربي / إنجليزي)', pricing_pro_4: 'تحسين أساسي لمحركات البحث (SEO)',
+        pricing_ecom_title: 'متجر إلكتروني', pricing_ecom_desc: 'للتجارة الإلكترونية وبيع المنتجات عبر الإنترنت',
+        pricing_ecom_1: 'نظام إدارة منتجات وطلبات متقدم', pricing_ecom_2: 'ربط مع بوابات الدفع الإلكتروني', pricing_ecom_3: 'سلة مشتريات وتجربة شراء سلسة', pricing_ecom_4: 'لوحة تحكم شاملة للمبيعات',
+        btn_order_now: 'اطلب الآن',
+        testimonials_label: 'آراء العملاء', testimonials_title_1: 'ماذا يقول', testimonials_title_2: 'عملاؤنا',
+        testimonial_1: '"تعاملت مع العديد من شركات البرمجة، ولكن 963AD قدمت لي مستوى مختلف من الاحترافية والسرعة في التنفيذ."',
+        testimonial_1_role: 'مدير تسويق', testimonial_1_name: 'أحمد علي',
+        testimonial_2: '"فريق الدعم الفني متجاوب جداً وعلى مدار الساعة. استضافة الموقع سريعة للغاية وتحسين SEO كان له أثر كبير في زيادة مبيعاتنا."',
+        testimonial_2_role: 'صاحبة متجر', testimonial_2_name: 'سارة أحمد',
+        testimonial_3: '"تصميم التطبيق كان مذهلاً وواجهة المستخدم سهلة ومريحة. تجربة العمل مع 963AD كانت ممتازة وسأقوم بالعمل معهم في مشاريعي القادمة."',
+        testimonial_3_role: 'مؤسس تطبيق', testimonial_3_name: 'محمد سعيد',
+        achievements_title_1: 'عدد', achievements_title_2: 'إنجازاتنا', achievements_desc: 'خلال سنوات عملنا ، حققنا العديد من الأهداف ، ونحن سعداء بمشاركتها.',
+        achievement_projects: 'مشاريع', achievement_clients: 'عملاء', achievement_years: 'سنوات الخبرة',
+        faq_title_1: 'الأسئلة', faq_title_2: 'الشائعة',
+        faq_q1: 'كم يستغرق بناء موقع ويب تعريفي لشركتي؟', faq_a1: 'يختلف الوقت حسب حجم الموقع والمتطلبات الخاصة، ولكن بشكل عام يستغرق الموقع التعريفي المكون من 5 صفحات ما بين أسبوع إلى أسبوعين من العمل المتواصل لضمان الجودة والتصميم المتجاوب.',
+        faq_q2: 'هل تقدمون خدمات الاستضافة مع تصميم الموقع؟', faq_a2: 'نعم بالتأكيد! نحن نوفر باقات متكاملة تشمل تصميم الموقع وبرمجته بالإضافة إلى استضافة سحابية سريعة وآمنة مع دومين مجاني وشهادة SSL للسنة الأولى.',
+        faq_q3: 'ما هي التقنيات التي تستخدمونها في برمجة التطبيقات؟', faq_a3: 'نحن نعتمد على أحدث التقنيات لضمان أفضل أداء. نستخدم عادةً React Native أو Flutter لبرمجة التطبيقات التي تعمل على نظامي Android و iOS بكود برمجي واحد وبجودة Native.',
+        faq_q4: 'هل يوجد دعم فني بعد تسليم المشروع؟', faq_a4: 'نعم، نقدم دعم فني مجاني لمدة شهر بعد تسليم المشروع لضمان عمل كل شيء بشكل مثالي، ويمكنك الاشتراك في باقات الدعم الفني والصيانة السنوية.',
+        contact_label: 'تواصل معنا', contact_title_1: 'نحن هنا', contact_title_2: 'لمساعدتك', contact_desc: 'فريقنا متاح للرد على جميع استفساراتك وتحويل أفكارك إلى واقع ملموس.',
+        contact_phone_label: 'اتصل بنا مباشرة', contact_email_label: 'راسلنا عبر الإيميل', contact_address_label: 'موقعنا', contact_address: 'سوريا، دمشق، المزة',
+        contact_form_title: 'أرسل رسالة', contact_form_title_highlight: 'مباشرة', message_details: 'اكتب تفاصيل مشروعك أو استفسارك هنا...', btn_send_now: 'إرسال الطلب الآن',
+        footer_desc: 'تم إنشاء 963ad في عام 2018 لتوفير خدمات تطوير المواقع والاستضافة وخدمات تحسين محركات البحث (SEO) للأعمال',
+        footer_quick_links: 'روابط سريعة', footer_contact_info: 'معلومات التواصل', footer_address: 'Syria, Damascus, West Mazah B57', footer_map_link: 'عرض الموقع في خرائط غوغل'
+      },
+      en: {
+        home: 'Home', about: 'About Us', services: 'Services', pricing: 'Pricing', projects: 'Projects', contact: 'Contact',
+        hosting: 'Hosting', apps: 'App Development', seo: 'SEO Services', webdev: 'Web Development',
+        hero_badge: '#Integrated_Digital_Solutions',
+        hero_title_1: 'Transforming Ideas', hero_title_2: 'into Digital Reality', hero_title_3: 'The Best Tech', hero_title_4: 'Solutions',
+        hero_desc: 'We offer a complete suite of digital services including web development, app development, SEO, and secure cloud hosting to ensure your business success.',
+        btn_request: 'Request Service Now', btn_plans: 'Explore Services',
+        cloud_hosting: 'Cloud Hosting', advanced_security: 'Advanced Security',
+        services_label: 'Our Services',
+        services_title_1: 'Integrated Solutions', services_title_2: 'for Your Digital Business',
+        service_hosting_title: 'Hosting', service_hosting_desc: 'High-performance servers, backups, advanced security.',
+        service_apps_title: 'App Development', service_apps_desc: 'Android & iOS with elegance and speed, unique experience.',
+        service_seo_title: 'SEO Services', service_seo_desc: 'Search engine optimization, advanced visibility, real customers.',
+        service_web_title: 'Web Development', service_web_desc: 'Responsive websites, stores, portals with latest tech.',
+        btn_request_service: 'Request Service',
+        about_label: 'About Us', about_title_1: 'Customer Trust is', about_title_2: 'Our Goal',
+        about_desc: 'We believe creativity is a matter of choice, so we hope our team helps you reach your dream.',
+        about_exp: 'Years Experience', about_support: 'Technical Support', about_love: 'Service with Love', about_happy: 'Customer Happiness',
+        about_quote: 'We strive to support and amplify your projects together.',
+        tech_label: 'Technologies', tech_title_1: 'Tools we rely on to ensure', tech_title_2: 'Best Quality',
+        frontend_title: 'Front-end', frontend_desc: 'We use the latest technologies to build interactive, fast-loading, fully responsive user interfaces.',
+        backend_title: 'Back-end', backend_desc: 'We build powerful and secure backend systems that handle high load, with flexible content management dashboards.',
+        quote_title_1: 'Request', quote_title_2: 'a Quote', quote_desc: 'Our team is happy to hear from you and support you. Fill in the form and we will get back to you as soon as possible.',
+        android_ios: 'Android/IOS', btn_send_quote: 'Send Quote',
+        full_name: 'Full Name', email: 'Your Email', phone: 'Phone Number', message: 'Your Message',
+        goal_title: 'Our Goal', goal_desc: 'Our primary and foremost goal is to achieve our clients happiness and build a solid relationship based on trust and professionalism that grows over time. We believe our success is measured by the satisfaction of our success partners, constantly striving for the highest quality standards.',
+        mission_title: 'Our Mission', mission_desc: 'Our mission is to provide integrated and innovative tech and digital solutions that meet our clients aspirations and exceed their expectations. We work with passion and creativity to harness the latest technologies for their business growth, aiming to be the premier choice in the digital era.',
+        history_title: 'Our History', history_desc: 'Over the course of 15 years of continuous hard work, the happiness of our clients and the success of their projects have been our guiding compass. We have built a history full of achievements and successful partnerships, and we consider maintaining and elevating this legacy our permanent responsibility.',
+        projects_title_1: 'Some of', projects_title_2: 'Our Projects',
+        project_1: 'Nineveh Platform', project_2: '7ajatna Store', project_3: 'Support Al-Watan',
+        project_4: 'BMKC Structure', project_5: 'DKA Smart Achievement', project_6: 'Nemu Child',
+        project_7: 'Privacy Professionals', project_8: 'Kora Ticket', project_9: 'LCM Luxury Care',
+        pricing_label: 'Our Packages', pricing_title_1: 'Packages', pricing_title_2: 'That Fit Your Needs',
+        pricing_basic_title: 'Informational Website', pricing_basic_desc: 'Ideal for individuals and startups to showcase their services',
+        pricing_basic_1: 'Attractive landing page design', pricing_basic_2: 'Fully responsive with mobile', pricing_basic_3: 'Direct contact form', pricing_basic_4: 'Social media button integration',
+        pricing_pro_title: 'Full Company Website', pricing_pro_desc: 'Ideal for businesses to showcase services professionally',
+        pricing_pro_1: 'Multiple pages (Home, Services, About, Contact)', pricing_pro_2: 'Custom dashboard for content management', pricing_pro_3: 'Multi-language support (Arabic/English)', pricing_pro_4: 'Basic SEO optimization',
+        pricing_ecom_title: 'E-Commerce Store', pricing_ecom_desc: 'For e-commerce and selling products online',
+        pricing_ecom_1: 'Advanced product and order management', pricing_ecom_2: 'Integration with payment gateways', pricing_ecom_3: 'Shopping cart and smooth checkout', pricing_ecom_4: 'Comprehensive sales dashboard',
+        btn_order_now: 'Order Now',
+        testimonials_label: 'Testimonials', testimonials_title_1: 'What Our', testimonials_title_2: 'Clients Say',
+        testimonial_1: '"I have dealt with many programming companies, but 963AD provided a different level of professionalism and speed of execution."',
+        testimonial_1_role: 'Marketing Manager', testimonial_1_name: 'Ahmed Ali',
+        testimonial_2: '"The technical support team is very responsive and available around the clock. The hosting is very fast and SEO had a great impact on increasing our sales."',
+        testimonial_2_role: 'Store Owner', testimonial_2_name: 'Sarah Ahmed',
+        testimonial_3: '"The application design was amazing and the user interface was easy and comfortable. The experience with 963AD was excellent and I will work with them on my upcoming projects."',
+        testimonial_3_role: 'App Founder', testimonial_3_name: 'Mohammed Saeed',
+        achievements_title_1: 'Our', achievements_title_2: 'Achievements', achievements_desc: 'Over the years of our work, we have achieved many goals, and we are happy to share them.',
+        achievement_projects: 'Projects', achievement_clients: 'Clients', achievement_years: 'Years of Experience',
+        faq_title_1: 'Frequently', faq_title_2: 'Asked Questions',
+        faq_q1: 'How long does it take to build a company informational website?', faq_a1: 'The time varies depending on the size of the website and special requirements, but generally a 5-page informational website takes between one to two weeks of continuous work to ensure quality and responsive design.',
+        faq_q2: 'Do you offer hosting services with website design?', faq_a2: 'Absolutely! We provide integrated packages that include website design and programming as well as fast and secure cloud hosting with a free domain and SSL certificate for the first year.',
+        faq_q3: 'What technologies do you use in app programming?', faq_a3: 'We rely on the latest technologies to ensure the best performance. We usually use React Native or Flutter to program apps that work on both Android and iOS with a single code base and native quality.',
+        faq_q4: 'Is there technical support after project delivery?', faq_a4: 'Yes, we provide free technical support for one month after project delivery to ensure everything works perfectly, and you can subscribe to annual technical support and maintenance packages.',
+        contact_label: 'Contact Us', contact_title_1: 'We are here', contact_title_2: 'to Help You', contact_desc: 'Our team is available to answer all your inquiries and turn your ideas into tangible reality.',
+        contact_phone_label: 'Call us directly', contact_email_label: 'Email us', contact_address_label: 'Our Location', contact_address: 'Syria, Damascus, Al-Mazzeh',
+        contact_form_title: 'Send a', contact_form_title_highlight: 'Message', message_details: 'Write your project details or inquiry here...', btn_send_now: 'Send Now',
+        footer_desc: '963ad was founded in 2018 to provide website development, hosting, and SEO services for businesses.',
+        footer_quick_links: 'Quick Links', footer_contact_info: 'Contact Info', footer_address: 'Syria, Damascus, West Mazah B57', footer_map_link: 'View on Google Maps'
+      }
+    };
+
+    // ===== TRANSLATION FUNCTION =====
+    let currentLang = 'ar';
+    function applyTranslations(lang) {
+      const data = translations[lang];
+      // update all elements with data-translate
+      document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (data[key] !== undefined) {
+          el.textContent = data[key];
+        }
+      });
+      // update placeholders
+      document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-translate-placeholder');
+        if (data[key] !== undefined) {
+          el.placeholder = data[key];
+        }
+      });
+      // update lang label
+      document.getElementById('lang-label').textContent = lang.toUpperCase();
+      // update dir
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.documentElement.lang = lang;
+
+      // Update Document Title and Meta Description dynamically for SEO professionalism
+      if (lang === 'ar') {
+        document.title = "963AD · استضافة وتطوير وSEO | حلول رقمية متكاملة";
+        document.querySelector('meta[name="description"]')?.setAttribute('content', "نقدم حلولاً رقمية متكاملة تشمل استضافة مواقع فائقة السرعة، تطوير تطبيقات Android و iOS، خدمات SEO احترافية، وتطوير مواقع ويب متجاوبة. 15 عاماً من الخبرة في خدمة عملائنا.");
+      } else {
+        document.title = "963AD · Hosting, Development & SEO | Integrated Digital Solutions";
+        document.querySelector('meta[name="description"]')?.setAttribute('content', "We offer integrated digital solutions including high-speed website hosting, Android & iOS app development, professional SEO services, and responsive web development. 15 years of experience serving our clients.");
+      }
+
+      currentLang = lang;
+    }
+
+    // ===== THEME TOGGLE =====
+    let currentTheme = 'dark'; // dark / light
+    const themeIcon = document.getElementById('theme-icon');
+    function toggleTheme() {
+      document.body.classList.toggle('light-theme');
+      if (document.body.classList.contains('light-theme')) {
+        themeIcon.className = 'fas fa-sun';
+        currentTheme = 'light';
+      } else {
+        themeIcon.className = 'fas fa-moon';
+        currentTheme = 'dark';
+      }
+    }
+
+    // ===== EVENT LISTENERS =====
+    document.getElementById('lang-toggle').addEventListener('click', function () {
+      const newLang = currentLang === 'ar' ? 'en' : 'ar';
+      applyTranslations(newLang);
+    });
+
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+    // ===== INIT =====
+    applyTranslations('ar');
+  </script>
+</body>
+
+</html>
