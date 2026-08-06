@@ -1800,16 +1800,50 @@
       }
     });
 
-    // Form submit will handle direct submission to FormSubmit.co
+    // Web3Forms Seamless AJAX Submission
     const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatusMessage');
     const submitBtn = document.getElementById('contactSubmitBtn');
-    if (contactForm && submitBtn) {
-      contactForm.addEventListener('submit', () => {
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Prevent standard page reload / redirect
+        
         submitBtn.disabled = true;
+        const originalBtnText = submitBtn.innerHTML;
         submitBtn.innerHTML = `
           <i class="fas fa-spinner fa-spin text-sm"></i>
-          <span>جاري إرسال الطلب...</span>
+          <span>جاري الإرسال...</span>
         `;
+        if (formStatus) formStatus.classList.add('hidden');
+
+        try {
+          const formData = new FormData(contactForm);
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            if (formStatus) {
+              formStatus.className = 'p-3.5 rounded-xl text-xs font-bold text-center font-cairo bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 block';
+              formStatus.innerText = currentLang === 'ar' ? ' تم إرسال طلبك بنجاح! وسيتواصل معك فريقنا في أقرب وقت.' : ' Your request has been sent successfully!';
+            }
+            contactForm.reset();
+          } else {
+            throw new Error(result.message || 'Error sending message');
+          }
+        } catch (err) {
+          if (formStatus) {
+            formStatus.className = 'p-3.5 rounded-xl text-xs font-bold text-center font-cairo bg-rose-500/10 border border-rose-500/30 text-rose-400 block';
+            formStatus.innerText = currentLang === 'ar' ? 'حدث خطأ أثناء الإرسال. يمكنك التواصل معنا مباشرة عبر واتساب.' : 'Failed to send. Please contact us directly via WhatsApp.';
+          }
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
       });
     }
   </script>
