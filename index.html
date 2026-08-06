@@ -1800,22 +1800,72 @@
       }
     });
 
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-[999999] hidden flex items-center gap-3 px-5 py-4 rounded-2xl bg-zinc-900/95 border border-zinc-700/80 text-white shadow-2xl backdrop-blur-xl transition-all duration-500 transform translate-y-10 opacity-0 font-cairo">
+    <div id="toastIconContainer" class="w-9 h-9 rounded-xl flex items-center justify-center text-sm shrink-0">
+      <i id="toastIcon" class="fas fa-check"></i>
+    </div>
+    <div>
+      <h5 id="toastTitle" class="text-xs font-extrabold text-white"></h5>
+      <p id="toastMessage" class="text-[11px] text-gray-300"></p>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE JAVASCRIPT FOR DYNAMIC BEHAVIOR & AR/EN TOGGLE -->
+  <!-- Swiper.js JavaScript CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    // Toast Notification System Function
+    function showToast(title, message, isSuccess = true) {
+      const toast = document.getElementById('toastNotification');
+      const toastTitle = document.getElementById('toastTitle');
+      const toastMessage = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+      const iconContainer = document.getElementById('toastIconContainer');
+
+      toastTitle.innerText = title;
+      toastMessage.innerText = message;
+
+      if (isSuccess) {
+        iconContainer.className = 'w-9 h-9 rounded-xl flex items-center justify-center text-sm shrink-0 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+        toastIcon.className = 'fas fa-check-circle text-base';
+      } else {
+        iconContainer.className = 'w-9 h-9 rounded-xl flex items-center justify-center text-sm shrink-0 bg-rose-500/20 text-rose-400 border border-rose-500/30';
+        toastIcon.className = 'fas fa-exclamation-circle text-base';
+      }
+
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-10', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+      }, 10);
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-10', 'opacity-0');
+        setTimeout(() => toast.classList.add('hidden'), 500);
+      }, 5000);
+    }
+
     // Web3Forms Seamless AJAX Submission
     const contactForm = document.getElementById('contactForm');
-    const formStatus = document.getElementById('formStatusMessage');
     const submitBtn = document.getElementById('contactSubmitBtn');
 
     if (contactForm) {
-      contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Prevent standard page reload / redirect
+      contactForm.onsubmit = async function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (!submitBtn) return false;
         
         submitBtn.disabled = true;
-        const originalBtnText = submitBtn.innerHTML;
+        const originalBtnHTML = submitBtn.innerHTML;
         submitBtn.innerHTML = `
           <i class="fas fa-spinner fa-spin text-sm"></i>
           <span>جاري الإرسال...</span>
         `;
-        if (formStatus) formStatus.classList.add('hidden');
 
         try {
           const formData = new FormData(contactForm);
@@ -1826,25 +1876,29 @@
 
           const result = await response.json();
 
-          if (result.success) {
-            if (formStatus) {
-              formStatus.className = 'p-3.5 rounded-xl text-xs font-bold text-center font-cairo bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 block';
-              formStatus.innerText = currentLang === 'ar' ? ' تم إرسال طلبك بنجاح! وسيتواصل معك فريقنا في أقرب وقت.' : ' Your request has been sent successfully!';
-            }
+          if (response.ok && result.success) {
+            showToast(
+              currentLang === 'ar' ? 'تم إرسال الطلب بنجاح! ' : 'Request Sent Successfully!',
+              currentLang === 'ar' ? 'وصلتنا تفاصيل مشروعك وسيتواصل معك فريقنا قريباً.' : 'We received your project details and will contact you shortly.',
+              true
+            );
             contactForm.reset();
           } else {
-            throw new Error(result.message || 'Error sending message');
+            throw new Error(result.message || 'Submission error');
           }
         } catch (err) {
-          if (formStatus) {
-            formStatus.className = 'p-3.5 rounded-xl text-xs font-bold text-center font-cairo bg-rose-500/10 border border-rose-500/30 text-rose-400 block';
-            formStatus.innerText = currentLang === 'ar' ? 'حدث خطأ أثناء الإرسال. يمكنك التواصل معنا مباشرة عبر واتساب.' : 'Failed to send. Please contact us directly via WhatsApp.';
-          }
+          showToast(
+            currentLang === 'ar' ? 'تعذر الإرسال ' : 'Submission Failed',
+            currentLang === 'ar' ? 'يرجى المحاولة مرة أخرى أو التواصل المباشر عبر الواتساب.' : 'Please try again or chat via WhatsApp.',
+            false
+          );
         } finally {
           submitBtn.disabled = false;
-          submitBtn.innerHTML = originalBtnText;
+          submitBtn.innerHTML = originalBtnHTML;
         }
-      });
+
+        return false;
+      };
     }
   </script>
 </body>
