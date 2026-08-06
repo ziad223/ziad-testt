@@ -1244,12 +1244,12 @@
             <h3 class="text-xl font-bold text-white mb-2 font-cairo" data-ar="أرسل طلب استشارة مجانية" data-en="Send Free Request">أرسل طلب استشارة مجانية</h3>
             <p class="text-xs text-gray-400 mb-6 font-cairo" data-ar="املأ البيانات وسيقوم مهندس برمجيات من فريقنا بالتواصل معك." data-en="Fill in your details and a software engineer will get back to you shortly.">املأ البيانات وسيقوم مهندس برمجيات من فريقنا بالتواصل معك.</p>
 
-            <form id="contactForm" action="https://formsubmit.co/purpleartagency556@gmail.com" method="POST" class="space-y-4">
-              <!-- FormSubmit Configuration -->
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_subject" value="طلب استشارة تجربة مجانية جديدة - 963AD">
-              <input type="text" name="_honey" style="display:none">
+            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+              <!-- Web3Forms Direct Integration -->
+              <input type="hidden" name="access_key" value="8f9be305-6453-4dc9-9e0c-5eead52c1e8d">
+              <input type="hidden" name="subject" value="طلب استشارة جديدة من موقع 963AD">
+              <input type="hidden" name="from_name" value="963AD Website Lead">
+              <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
               <div>
                 <label class="block text-xs font-bold text-gray-300 mb-2 font-cairo" data-ar="الاسم الكامل" data-en="Full Name">الاسم الكامل</label>
@@ -1280,11 +1280,11 @@
 
               <div>
                 <label class="block text-xs font-bold text-gray-300 mb-2 font-cairo" data-ar="تفاصيل المشروع" data-en="Project Details">تفاصيل المشروع</label>
-                <textarea name="details" rows="3" placeholder="اكتب نبذة مختصرة عن الموقع أو الفكرة المطلوبة..." required
+                <textarea name="message" rows="3" placeholder="اكتب نبذة مختصرة عن الموقع أو الفكرة المطلوبة..." required
                   class="w-full px-5 py-3.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-white text-sm placeholder-gray-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition font-cairo"></textarea>
               </div>
 
-              <div id="formStatusMessage" class="hidden p-3 rounded-xl text-xs font-bold text-center font-cairo"></div>
+              <div id="formStatusMessage" class="hidden p-3.5 rounded-xl text-xs font-bold text-center font-cairo"></div>
 
               <button id="contactSubmitBtn" type="submit"
                 class="w-full py-4 text-xs font-black text-black bg-white rounded-full uppercase tracking-widest hover:bg-gray-200 transition font-cairo flex items-center justify-center gap-2 shadow-lg shadow-white/10">
