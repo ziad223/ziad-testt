@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://963ad.net/sitemap.xml
