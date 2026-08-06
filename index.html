@@ -1799,6 +1799,7 @@
         document.getElementById('legalModalContent').innerHTML = data.content[currentLang] || data.content.ar;
       }
     });
+  </script>
 
   <!-- TOAST NOTIFICATION CONTAINER -->
   <div id="toastNotification" class="fixed bottom-6 right-6 z-[999999] hidden flex items-center gap-3 px-5 py-4 rounded-2xl bg-zinc-900/95 border border-zinc-700/80 text-white shadow-2xl backdrop-blur-xl transition-all duration-500 transform translate-y-10 opacity-0 font-cairo">
@@ -1810,11 +1811,6 @@
       <p id="toastMessage" class="text-[11px] text-gray-300"></p>
     </div>
   </div>
-
-  <!-- INTERACTIVE JAVASCRIPT FOR DYNAMIC BEHAVIOR & AR/EN TOGGLE -->
-  <!-- Swiper.js JavaScript CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script>
     // Toast Notification System Function
