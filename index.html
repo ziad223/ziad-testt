@@ -1800,48 +1800,16 @@
       }
     });
 
-    // Contact Form AJAX Submission with FormSubmit API
+    // Form submit will handle direct submission to FormSubmit.co
     const contactForm = document.getElementById('contactForm');
-    const formStatus = document.getElementById('formStatusMessage');
     const submitBtn = document.getElementById('contactSubmitBtn');
-
-    if (contactForm) {
-      contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        // UI Loading State
+    if (contactForm && submitBtn) {
+      contactForm.addEventListener('submit', () => {
         submitBtn.disabled = true;
-        const originalBtnHTML = submitBtn.innerHTML;
         submitBtn.innerHTML = `
           <i class="fas fa-spinner fa-spin text-sm"></i>
           <span>جاري إرسال الطلب...</span>
         `;
-        formStatus.classList.add('hidden');
-
-        try {
-          const formData = new FormData(contactForm);
-          const response = await fetch('https://formsubmit.co/ajax/purpleartagency556@gmail.com', {
-            method: 'POST',
-            body: formData,
-            headers: {
-              'Accept': 'application/json'
-            }
-          });
-
-          if (response.ok) {
-            formStatus.className = 'p-3.5 rounded-xl text-xs font-bold text-center font-cairo bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 block';
-            formStatus.innerText = currentLang === 'ar' ? ' تم إرسال طلبك بنجاح وسيتواصل معك مهندسنا في أقرب وقت!' : ' Your request has been sent successfully! We will contact you soon.';
-            contactForm.reset();
-          } else {
-            throw new Error('Submission failed');
-          }
-        } catch (err) {
-          formStatus.className = 'p-3.5 rounded-xl text-xs font-bold text-center font-cairo bg-rose-500/10 border border-rose-500/30 text-rose-400 block';
-          formStatus.innerText = currentLang === 'ar' ? 'حدث خطأ أثناء الإرسال. يرجى المحاولة لاحقاً أو التواصل عبر الواتساب.' : 'An error occurred. Please try again or contact via WhatsApp.';
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalBtnHTML;
-        }
       });
     }
   </script>
