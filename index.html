@@ -297,6 +297,10 @@
       text-align: left;
     }
 
+    html[dir="ltr"] .text-right {
+      text-align: left !important;
+    }
+
     html[dir="ltr"] .fixed-btn {
       left: auto;
       right: 24px;
@@ -1183,7 +1187,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           <!-- Content & CTA Column (7 cols) -->
-          <div class="lg:col-span-7 space-y-10 text-right">
+          <div class="lg:col-span-7 space-y-10 ltr:text-left rtl:text-right">
             
             <!-- App Badge -->
             <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-purple-950/80 border border-purple-500/30 text-xs font-extrabold text-purple-300 font-cairo shadow-inner mb-2">
