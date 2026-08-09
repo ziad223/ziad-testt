@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Allow: /images/
+Allow: /*.css
+Allow: /*.js
 
+# Sitemaps
 Sitemap: https://963ad.net/sitemap.xml

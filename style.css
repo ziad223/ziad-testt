@@ -1,0 +1,155 @@
+    * {
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      background-color: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #000;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #222;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #444;
+    }
+
+    /* Infinite Marquee Animations */
+    @keyframes marquee-left {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes marquee-right {
+      0% {
+        transform: translateX(-50%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .animate-marquee-left {
+      display: flex;
+      width: max-content;
+      animation: marquee-left 30s linear infinite;
+    }
+
+    .animate-marquee-right {
+      display: flex;
+      width: max-content;
+      animation: marquee-right 30s linear infinite;
+    }
+
+    /* Swiper Linear Continuous Motion */
+    .swiper-wrapper {
+      transition-timing-function: linear !important;
+    }
+
+    /* Squarespace card style */
+    .sq-card {
+      background: #0a0a0a;
+      border: 1px solid #1f1f1f;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sq-card:hover {
+      border-color: #383838;
+      transform: translateY(-4px);
+    }
+
+    .glass-header {
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Accordion transition */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    /* Fixed Floating action buttons */
+    .fixed-btn {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .fixed-btn a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      color: white;
+      font-size: 22px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+      transition: transform 0.2s ease;
+    }
+
+    .fixed-btn a:hover {
+      transform: scale(1.1);
+    }
+
+    /* LTR Support when English is enabled */
+    html[dir="ltr"] {
+      text-align: left;
+    }
+
+    html[dir="ltr"] .text-right {
+      text-align: left !important;
+    }
+
+    html[dir="ltr"] .fixed-btn {
+      left: auto;
+      right: 24px;
+    }
+
+    /* Automatic Arrow Flipping for LTR (English) */
+    html[dir="ltr"] .fa-arrow-left,
+    html[dir="ltr"] .fa-chevron-left {
+      transform: scaleX(-1);
+      display: inline-block;
+    }
+
+    html[dir="ltr"] .group:hover .fa-arrow-left,
+    html[dir="ltr"] .group:hover .fa-chevron-left {
+      transform: scaleX(-1) translateX(-6px) !important;
+    }
