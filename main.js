@@ -1,14 +1,20 @@
-    // Swiper Dual Infinite Opposite Sliders Initialization
+    // Swiper Dual Infinite Opposite Sliders Initialization (Continuous Opposing Motion)
     const topSwiper = new Swiper('.topSwiper', {
       slidesPerView: 'auto',
       spaceBetween: 24,
       loop: true,
-      speed: 6000,
+      freeMode: {
+        enabled: true,
+        momentum: false,
+      },
+      speed: 7000,
       allowTouchMove: false,
       autoplay: {
         delay: 0,
         disableOnInteraction: false,
-        reverseDirection: true,
+        pauseOnMouseEnter: false,
+        reverseDirection: false, // Moves continuously LEFT ⬅️
+        waitForTransition: false,
       },
     });
 
@@ -16,12 +22,18 @@
       slidesPerView: 'auto',
       spaceBetween: 24,
       loop: true,
-      speed: 6000,
+      freeMode: {
+        enabled: true,
+        momentum: false,
+      },
+      speed: 7000,
       allowTouchMove: false,
       autoplay: {
         delay: 0,
         disableOnInteraction: false,
-        reverseDirection: false,
+        pauseOnMouseEnter: false,
+        reverseDirection: true, // Moves continuously RIGHT ➡️
+        waitForTransition: false,
       },
     });
 
