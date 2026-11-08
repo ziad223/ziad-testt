@@ -157,17 +157,40 @@
       font-weight: 900 !important;
     }
 
-    /* Desktop Navigation Links - Deep Sharp Contrast */
+    /* Desktop Navigation Container & Links Spacing */
+    .glass-header nav {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.65rem !important;
+    }
+    @media (min-width: 1280px) {
+      .glass-header nav {
+        gap: 0.95rem !important;
+      }
+    }
+    @media (min-width: 1536px) {
+      .glass-header nav {
+        gap: 1.25rem !important;
+      }
+    }
+
+    /* Desktop Navigation Links - Modern, Sleek, Crisp */
     .glass-header nav a {
-      color: #27272a !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      color: #1f2937 !important;
       font-weight: 700 !important;
-      font-size: 0.9rem !important;
+      font-size: 0.825rem !important;
+      padding: 0.2rem 0.38rem !important;
       letter-spacing: normal !important;
-      transition: color 0.2s ease, transform 0.15s ease !important;
+      white-space: nowrap !important;
+      border-radius: 0.5rem !important;
+      transition: color 0.15s ease, background-color 0.15s ease !important;
     }
 
     .glass-header nav a:hover {
       color: #000000 !important;
+      background-color: rgba(0, 0, 0, 0.05) !important;
     }
 
     /* Accent Nav Links */
@@ -274,6 +297,82 @@
       background-color: #000000 !important;
       color: #ffffff !important;
       font-weight: 900 !important;
+    }
+
+    /* ============================================================
+       LIGHT FOOTER PROFESSIONAL DESIGN
+       ============================================================ */
+    footer,
+    .site-footer {
+      background-color: #f8fafc !important;
+      border-top: 1px solid #e2e8f0 !important;
+      color: #475569 !important;
+    }
+
+    footer h4,
+    .site-footer h4 {
+      color: #0f172a !important;
+      font-weight: 800 !important;
+    }
+
+    footer p,
+    .site-footer p {
+      color: #475569 !important;
+    }
+
+    footer a,
+    .site-footer a {
+      color: #475569 !important;
+      transition: color 0.15s ease !important;
+    }
+
+    footer a:hover,
+    .site-footer a:hover {
+      color: #000000 !important;
+    }
+
+    footer .brand-title,
+    footer a span.font-cairo,
+    footer .col-span-2 span.text-xl,
+    footer span.text-xl {
+      color: #09090b !important;
+      font-weight: 900 !important;
+    }
+
+    footer .border-t,
+    footer .border-zinc-900,
+    footer .border-slate-200 {
+      border-color: #e2e8f0 !important;
+    }
+
+    footer button {
+      color: #64748b !important;
+    }
+    footer button:hover {
+      color: #0f172a !important;
+    }
+
+    footer a[href^="tel:"] {
+      color: #059669 !important;
+      font-weight: 700 !important;
+    }
+    footer a[href^="tel:"]:hover {
+      color: #047857 !important;
+    }
+    footer a[href^="mailto:"] {
+      color: #475569 !important;
+    }
+    footer a[href^="mailto:"]:hover {
+      color: #000000 !important;
+    }
+    footer a[href*="google.com"],
+    footer a[href*="play.google"] {
+      color: #7c3aed !important;
+      font-weight: 700 !important;
+    }
+    footer a[href*="google.com"]:hover,
+    footer a[href*="play.google"]:hover {
+      color: #6d28d9 !important;
     }
 
     /* Accordion transition */
