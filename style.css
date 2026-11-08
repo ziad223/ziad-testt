@@ -143,10 +143,137 @@
     }
 
     .glass-header {
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.96) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    /* Brand Logo Text */
+    .glass-header a span,
+    .glass-header .brand-title {
+      color: #09090b !important;
+      font-weight: 900 !important;
+    }
+
+    /* Desktop Navigation Links - Deep Sharp Contrast */
+    .glass-header nav a {
+      color: #27272a !important;
+      font-weight: 700 !important;
+      font-size: 0.9rem !important;
+      letter-spacing: normal !important;
+      transition: color 0.2s ease, transform 0.15s ease !important;
+    }
+
+    .glass-header nav a:hover {
+      color: #000000 !important;
+    }
+
+    /* Accent Nav Links */
+    .glass-header nav a[href*="article"],
+    .glass-header nav a[data-en="GUIDES"],
+    .glass-header nav a.text-sky-700 {
+      color: #0284c7 !important;
+      font-weight: 800 !important;
+    }
+    .glass-header nav a[href*="article"]:hover,
+    .glass-header nav a.text-sky-700:hover {
+      color: #0369a1 !important;
+    }
+
+    .glass-header nav a[href*="marketing"],
+    .glass-header nav a[data-en="MARKETING"],
+    .glass-header nav a.text-emerald-700 {
+      color: #059669 !important;
+      font-weight: 800 !important;
+    }
+    .glass-header nav a[href*="marketing"]:hover,
+    .glass-header nav a.text-emerald-700:hover {
+      color: #047857 !important;
+    }
+
+    .glass-header nav a[href*="app"],
+    .glass-header nav a[data-en="APP"],
+    .glass-header nav a.text-purple-700 {
+      color: #7c3aed !important;
+      font-weight: 800 !important;
+    }
+    .glass-header nav a[href*="app"]:hover,
+    .glass-header nav a.text-purple-700:hover {
+      color: #6d28d9 !important;
+    }
+
+    /* Language Switcher Pill */
+    .glass-header #langToggleBtn {
+      background-color: #f4f4f5 !important;
+      border: 1px solid #d4d4d8 !important;
+      color: #18181b !important;
+    }
+    .glass-header #langToggleBtn:hover {
+      background-color: #e4e4e7 !important;
+      border-color: #a1a1aa !important;
+    }
+    .glass-header #langToggleBtn i {
+      color: #52525b !important;
+    }
+    .glass-header #langToggleBtn span {
+      color: #18181b !important;
+      font-weight: 700 !important;
+    }
+
+    /* Call To Action Button (ابدأ الآن) */
+    .glass-header a[data-ar="ابدأ الآن"],
+    .glass-header a[data-en="GET STARTED"] {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+      font-weight: 900 !important;
+      border: 1px solid #000000 !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18) !important;
+      transition: all 0.2s ease !important;
+    }
+    .glass-header a[data-ar="ابدأ الآن"]:hover,
+    .glass-header a[data-en="GET STARTED"]:hover {
+      background-color: #27272a !important;
+      color: #ffffff !important;
+      border-color: #27272a !important;
+      transform: translateY(-1px) !important;
+    }
+
+    /* Mobile Menu Toggle Icon */
+    .glass-header #mobileMenuBtn {
+      color: #09090b !important;
+    }
+    .glass-header #mobileMenuBtn:hover {
+      color: #000000 !important;
+    }
+
+    /* Mobile Drawer */
+    #mobileMenu {
+      background: rgba(255, 255, 255, 0.98) !important;
+      border-bottom: 1px solid #e4e4e7 !important;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+    }
+    #mobileMenu .mobile-nav-link {
+      color: #18181b !important;
+      font-weight: 700 !important;
+    }
+    #mobileMenu .mobile-nav-link:hover {
+      color: #000000 !important;
+    }
+    #mobileMenu a[href*="article"] {
+      color: #0284c7 !important;
+    }
+    #mobileMenu a[href*="marketing"] {
+      color: #059669 !important;
+    }
+    #mobileMenu a[href*="app"] {
+      color: #7c3aed !important;
+    }
+    #mobileMenu a[data-ar="ابدأ الآن"] {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+      font-weight: 900 !important;
     }
 
     /* Accordion transition */
