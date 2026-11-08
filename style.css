@@ -67,60 +67,67 @@
       background: #444;
     }
 
-    /* Infinite Marquee Animations (Opposite Directions, Never Stops, 60fps GPU) */
-    @keyframes marquee-left {
+    /* Infinite Marquee Continuous Opposite Motion (100% GPU, Zero-Freeze, 60fps) */
+    @keyframes marquee-top-left {
       0% {
         transform: translate3d(0, 0, 0);
       }
       100% {
-        transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-33.333333%, 0, 0);
       }
     }
 
-    @keyframes marquee-right {
+    @keyframes marquee-bottom-right {
       0% {
-        transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-33.333333%, 0, 0);
       }
       100% {
         transform: translate3d(0, 0, 0);
       }
     }
 
-    .animate-marquee-left {
-      display: flex !important;
-      width: max-content !important;
-      animation: marquee-left 32s linear infinite !important;
-      will-change: transform;
+    .topSwiper,
+    .bottomSwiper {
+      overflow: hidden !important;
+      width: 100% !important;
+      user-select: none;
     }
 
-    .animate-marquee-right {
+    .topSwiper .swiper-wrapper {
       display: flex !important;
       width: max-content !important;
-      animation: marquee-right 32s linear infinite !important;
+      animation: marquee-top-left 35s linear infinite !important;
       will-change: transform;
+      transform: translate3d(0, 0, 0);
     }
 
-    .animate-marquee-left:hover,
-    .animate-marquee-right:hover {
+    .bottomSwiper .swiper-wrapper {
+      display: flex !important;
+      width: max-content !important;
+      animation: marquee-bottom-right 35s linear infinite !important;
+      will-change: transform;
+      transform: translate3d(-33.333333%, 0, 0);
+    }
+
+    .topSwiper:hover .swiper-wrapper,
+    .bottomSwiper:hover .swiper-wrapper {
       animation-play-state: paused !important;
     }
 
-    .marquee-slide {
+    .topSwiper .swiper-slide,
+    .bottomSwiper .swiper-slide {
       flex-shrink: 0 !important;
       width: 320px !important;
+      margin-right: 24px !important;
+      display: block !important;
     }
 
     @media (min-width: 640px) {
-      .marquee-slide {
+      .topSwiper .swiper-slide,
+      .bottomSwiper .swiper-slide {
         width: 380px !important;
+        margin-right: 24px !important;
       }
-    }
-
-    /* Swiper Linear Continuous Motion */
-    .swiper-wrapper {
-      -webkit-transition-timing-function: linear !important;
-      -o-transition-timing-function: linear !important;
-      transition-timing-function: linear !important;
     }
 
     /* Squarespace card style */
@@ -215,7 +222,7 @@
 
     /* Accessibility: Respect Reduced Motion Preference */
     @media (prefers-reduced-motion: reduce) {
-      *,
+      *:not(.topSwiper *):not(.bottomSwiper *),
       ::before,
       ::after {
         animation-duration: 0.01ms !important;
