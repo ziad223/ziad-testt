@@ -1,72 +1,29 @@
-    // Swiper Dual Infinite Opposite Sliders Initialization (Bulletproof Continuous Loop)
-    let topSwiperInstance = null;
-    let bottomSwiperInstance = null;
-
-    function initSwipers() {
-      if (typeof Swiper === 'undefined') {
-        setTimeout(initSwipers, 50);
-        return;
-      }
-
-      const topEl = document.querySelector('.topSwiper');
-      if (topEl && !topSwiperInstance) {
-        topSwiperInstance = new Swiper('.topSwiper', {
-          slidesPerView: 'auto',
-          spaceBetween: 24,
-          loop: true,
-          loopedSlides: 6,
-          loopAdditionalSlides: 6,
-          speed: 6000,
-          allowTouchMove: false,
-          observer: true,
-          observeParents: true,
-          autoplay: {
-            delay: 0,
-            disableOnInteraction: false,
-            reverseDirection: true,
-            pauseOnMouseEnter: true,
-          },
-        });
-      }
-
-      const bottomEl = document.querySelector('.bottomSwiper');
-      if (bottomEl && !bottomSwiperInstance) {
-        bottomSwiperInstance = new Swiper('.bottomSwiper', {
-          slidesPerView: 'auto',
-          spaceBetween: 24,
-          loop: true,
-          loopedSlides: 6,
-          loopAdditionalSlides: 6,
-          speed: 6000,
-          allowTouchMove: false,
-          observer: true,
-          observeParents: true,
-          autoplay: {
-            delay: 0,
-            disableOnInteraction: false,
-            reverseDirection: false,
-            pauseOnMouseEnter: true,
-          },
-        });
-      }
-    }
-
-    // Auto-resume autoplay when user returns to tab or window gains focus
-    window.addEventListener('focus', () => {
-      if (topSwiperInstance && topSwiperInstance.autoplay && !topSwiperInstance.autoplay.running) {
-        topSwiperInstance.autoplay.start();
-      }
-      if (bottomSwiperInstance && bottomSwiperInstance.autoplay && !bottomSwiperInstance.autoplay.running) {
-        bottomSwiperInstance.autoplay.start();
-      }
+    // Swiper Dual Infinite Opposite Sliders Initialization
+    const topSwiper = new Swiper('.topSwiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 24,
+      loop: true,
+      speed: 6000,
+      allowTouchMove: false,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+        reverseDirection: true,
+      },
     });
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initSwipers);
-    } else {
-      initSwipers();
-    }
-    window.addEventListener('load', initSwipers);
+    const bottomSwiper = new Swiper('.bottomSwiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 24,
+      loop: true,
+      speed: 6000,
+      allowTouchMove: false,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+        reverseDirection: false,
+      },
+    });
 
     // Mobile Navigation Menu Toggle with A11y
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');

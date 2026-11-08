@@ -67,37 +67,53 @@
       background: #444;
     }
 
-    /* Infinite Marquee Animations */
+    /* Infinite Marquee Animations (Opposite Directions, Never Stops, 60fps GPU) */
     @keyframes marquee-left {
       0% {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
       }
-
       100% {
-        transform: translateX(-50%);
+        transform: translate3d(-50%, 0, 0);
       }
     }
 
     @keyframes marquee-right {
       0% {
-        transform: translateX(-50%);
+        transform: translate3d(-50%, 0, 0);
       }
-
       100% {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
       }
     }
 
     .animate-marquee-left {
-      display: flex;
-      width: max-content;
-      animation: marquee-left 30s linear infinite;
+      display: flex !important;
+      width: max-content !important;
+      animation: marquee-left 32s linear infinite !important;
+      will-change: transform;
     }
 
     .animate-marquee-right {
-      display: flex;
-      width: max-content;
-      animation: marquee-right 30s linear infinite;
+      display: flex !important;
+      width: max-content !important;
+      animation: marquee-right 32s linear infinite !important;
+      will-change: transform;
+    }
+
+    .animate-marquee-left:hover,
+    .animate-marquee-right:hover {
+      animation-play-state: paused !important;
+    }
+
+    .marquee-slide {
+      flex-shrink: 0 !important;
+      width: 320px !important;
+    }
+
+    @media (min-width: 640px) {
+      .marquee-slide {
+        width: 380px !important;
+      }
     }
 
     /* Swiper Linear Continuous Motion */
