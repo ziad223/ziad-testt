@@ -3,16 +3,56 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://963ad.net/</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://963ad.net/images/logo.png</image:loc>
-      <image:title>963AD Logo - أفضل شركة تصميم مواقع وبرمجة تطبيقات في سوريا</image:title>
+      <image:title>963AD Logo - أفضل شركة تصميم مواقع وبرمجة تطبيقات في سوريا ودمشق</image:title>
     </image:image>
     <image:image>
       <image:loc>https://963ad.net/images/hero-bg.jpg</image:loc>
       <image:title>963AD Digital Solutions Agency Damascus Syria</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://963ad.net/web-design-syria.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://963ad.net/images/project-11.png</image:loc>
+      <image:title>تصميم وتطوير المواقع الإلكترونية للشركات في سوريا ودمشق - 963AD</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://963ad.net/ecommerce-syria.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://963ad.net/images/project-10.png</image:loc>
+      <image:title>تصميم متاجر إلكترونية احترافية في سوريا ودمشق - 963AD</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://963ad.net/mobile-apps-syria.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://963ad.net/images/project-12.png</image:loc>
+      <image:title>برمجة تطبيقات الجوال أندرويد وآيفون في سوريا ودمشق - 963AD</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://963ad.net/seo-hosting-syria.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://963ad.net/images/project-9.png</image:loc>
+      <image:title>استضافة مواقع سريعة وخدمات SEO في سوريا ودمشق - 963AD</image:title>
     </image:image>
   </url>
 </urlset>

@@ -1,53 +1,91 @@
-    // Swiper Dual Infinite Opposite Sliders Initialization
-    const topSwiper = new Swiper('.topSwiper', {
-      slidesPerView: 'auto',
-      spaceBetween: 24,
-      loop: true,
-      speed: 6000,
-      allowTouchMove: false,
-      autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-        reverseDirection: true,
-      },
-    });
+    // Swiper Dual Infinite Opposite Sliders Initialization (Guarded for zero errors)
+    if (typeof Swiper !== 'undefined') {
+      if (document.querySelector('.topSwiper')) {
+        new Swiper('.topSwiper', {
+          slidesPerView: 'auto',
+          spaceBetween: 24,
+          loop: true,
+          speed: 6000,
+          allowTouchMove: false,
+          autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+            reverseDirection: true,
+          },
+        });
+      }
 
-    const bottomSwiper = new Swiper('.bottomSwiper', {
-      slidesPerView: 'auto',
-      spaceBetween: 24,
-      loop: true,
-      speed: 6000,
-      allowTouchMove: false,
-      autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-        reverseDirection: false,
-      },
-    });
+      if (document.querySelector('.bottomSwiper')) {
+        new Swiper('.bottomSwiper', {
+          slidesPerView: 'auto',
+          spaceBetween: 24,
+          loop: true,
+          speed: 6000,
+          allowTouchMove: false,
+          autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+            reverseDirection: false,
+          },
+        });
+      }
+    }
 
-    // Mobile Navigation Menu Toggle
+    // Mobile Navigation Menu Toggle with A11y
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+    if (mobileMenuBtn && mobileMenu) {
+      const toggleMenu = (open) => {
+        const shouldClose = typeof open === 'boolean' ? !open : !mobileMenu.classList.contains('hidden');
+        if (shouldClose) {
+          mobileMenu.classList.add('hidden');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        } else {
+          mobileMenu.classList.remove('hidden');
+          mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        }
+      };
 
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
+      mobileMenuBtn.addEventListener('click', () => toggleMenu());
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
       });
-    });
 
-    // Accordion Interactive Functionality
+      // Close mobile menu on click outside
+      document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+          toggleMenu(false);
+        }
+      });
+    }
+
+    // Accordion Interactive Functionality with A11y & Keyboard Support
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
-      item.addEventListener('click', () => {
+      item.setAttribute('role', 'button');
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('aria-expanded', item.classList.contains('active') ? 'true' : 'false');
+
+      const toggleFaq = () => {
         const isActive = item.classList.contains('active');
-        faqItems.forEach(i => i.classList.remove('active'));
+        faqItems.forEach(i => {
+          i.classList.remove('active');
+          i.setAttribute('aria-expanded', 'false');
+        });
         if (!isActive) {
           item.classList.add('active');
+          item.setAttribute('aria-expanded', 'true');
+        }
+      };
+
+      item.addEventListener('click', toggleFaq);
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleFaq();
         }
       });
     });
@@ -58,39 +96,41 @@
     const langLabel = document.getElementById('langLabel');
     const translatableElements = document.querySelectorAll('[data-ar][data-en]');
 
-    langToggleBtn.addEventListener('click', () => {
-      const isEnglish = currentLang === 'ar';
-      currentLang = isEnglish ? 'en' : 'ar';
+    if (langToggleBtn) {
+      langToggleBtn.addEventListener('click', () => {
+        const isEnglish = currentLang === 'ar';
+        currentLang = isEnglish ? 'en' : 'ar';
 
-      document.documentElement.setAttribute('dir', isEnglish ? 'ltr' : 'rtl');
-      document.documentElement.setAttribute('lang', currentLang);
-      langLabel.textContent = isEnglish ? 'العربية' : 'English';
+        document.documentElement.setAttribute('dir', isEnglish ? 'ltr' : 'rtl');
+        document.documentElement.setAttribute('lang', currentLang);
+        if (langLabel) langLabel.textContent = isEnglish ? 'العربية' : 'English';
 
-      // Dynamically toggle arrow icons & hover directions for LTR / RTL
-      document.querySelectorAll('.fa-arrow-left, .fa-arrow-right').forEach(icon => {
-        if (isEnglish) {
-          icon.classList.replace('fa-arrow-left', 'fa-arrow-right');
-          if (icon.classList.contains('group-hover:-translate-x-1')) {
-            icon.classList.replace('group-hover:-translate-x-1', 'group-hover:translate-x-1');
+        // Dynamically toggle arrow icons & hover directions for LTR / RTL
+        document.querySelectorAll('.fa-arrow-left, .fa-arrow-right').forEach(icon => {
+          if (isEnglish) {
+            icon.classList.replace('fa-arrow-left', 'fa-arrow-right');
+            if (icon.classList.contains('group-hover:-translate-x-1')) {
+              icon.classList.replace('group-hover:-translate-x-1', 'group-hover:translate-x-1');
+            }
+            if (icon.classList.contains('group-hover:-translate-x-2')) {
+              icon.classList.replace('group-hover:-translate-x-2', 'group-hover:translate-x-2');
+            }
+          } else {
+            icon.classList.replace('fa-arrow-right', 'fa-arrow-left');
+            if (icon.classList.contains('group-hover:translate-x-1')) {
+              icon.classList.replace('group-hover:translate-x-1', 'group-hover:-translate-x-1');
+            }
+            if (icon.classList.contains('group-hover:translate-x-2')) {
+              icon.classList.replace('group-hover:translate-x-2', 'group-hover:-translate-x-2');
+            }
           }
-          if (icon.classList.contains('group-hover:-translate-x-2')) {
-            icon.classList.replace('group-hover:-translate-x-2', 'group-hover:translate-x-2');
-          }
-        } else {
-          icon.classList.replace('fa-arrow-right', 'fa-arrow-left');
-          if (icon.classList.contains('group-hover:translate-x-1')) {
-            icon.classList.replace('group-hover:translate-x-1', 'group-hover:-translate-x-1');
-          }
-          if (icon.classList.contains('group-hover:translate-x-2')) {
-            icon.classList.replace('group-hover:translate-x-2', 'group-hover:-translate-x-2');
-          }
-        }
+        });
+
+        translatableElements.forEach(el => {
+          el.textContent = el.getAttribute(`data-${currentLang}`);
+        });
       });
-
-      translatableElements.forEach(el => {
-        el.textContent = el.getAttribute(`data-${currentLang}`);
-      });
-    });
+    }
 
     // Interactive Service Modal Logic
     const serviceData = {
@@ -165,7 +205,7 @@
         </li>
       `).join('');
 
-      document.getElementById('modalWaBtn').href = `https://wa.me/963932222841?text=${encodeURIComponent(data.waMessage)}`;
+      document.getElementById('modalWaBtn').href = `https://wa.me/963994524330?text=${encodeURIComponent(data.waMessage)}`;
 
       const modal = document.getElementById('serviceModal');
       modal.classList.remove('hidden');
@@ -328,23 +368,161 @@
 
     document.getElementById('legalModal')?.addEventListener('click', (e) => {
       if (e.target.id === 'legalModal') closeLegalModal();
+        closeArticleModal();
     });
 
-    // Support Escape key to close any active modal
+    
+    // Article Modal Data & Functions
+    const articleData = {
+      web_design: {
+        badge: 'تصميم مواقع',
+        readTime: 'قراءة: 4 دقائق',
+        title: 'تصميم مواقع الإنترنت للشركات 2026: المعايير، التكلفة، وأسرار النجاح',
+        waMessage: 'مرحباً شركة 963AD، أود الاستفسار عن باقات تصميم المواقع الإلكترونية لشركتي.',
+        body: `
+          <p class="text-base text-gray-200 leading-relaxed font-bold">
+            في العصر الرقمي الحديث، لم يعد امتلاك موقع إلكتروني مجرد رفاهية، بل هو الهوية الرسمية ونقطة الاتصال الأولى بينك وبين عملائك في السوق المحلي والعالمي.
+          </p>
+          <div class="space-y-4 pt-2">
+            <h4 class="text-lg font-bold text-sky-400">1. لماذا يحتاج نشاطك التجاري إلى تصميم موقع احترافي؟</h4>
+            <p>
+              الموقع الإلكتروني يعمل كمقر رقمي متاح 24 ساعة يومياً على مدار 7 أيام في الأسبوع. يمنح العملاء الثقة والمصداقية، ويسمح لهم بالاطلاع على خدماتك وسابقة أعمالك والتواصل معك بضغطة زر واحدة.
+            </p>
+            <h4 class="text-lg font-bold text-sky-400">2. أهم معايير تصميم مواقع ناجحة في 2026:</h4>
+            <ul class="space-y-2 list-disc list-inside text-gray-300">
+              <li><strong>السرعة الفائقة (Core Web Vitals):</strong> الزائر يغادر أي موقع يستغرق أكثر من 3 ثوانٍ للتحميل. في 963AD نضمن سرعة تحميل أقل من ثانية واحدة.</li>
+              <li><strong>التوافق مع الهواتف الذكية (Responsive Design):</strong> أكثر من 80% من الزيارات تتم عبر الموبايل، لذا نضمن تصميماً متجاوباً بسلاسة مع كافة مقاسات الشاشات.</li>
+              <li><strong>التهيئة لمحركات البحث (SEO-Ready):</strong> كتابة أكواد برمجية نظيفة وبنية دلالية سليمة تتيح لروبوتات جوجل فهم الموقع وفهرسته فوراً في الصفحة الأولى.</li>
+              <li><strong>لوحة تحكم سهلة بالعربية:</strong> إدارة المحتوى وتحديث الأسعار والصور دون الحاجة لأي خلفية تقنية.</li>
+            </ul>
+            <h4 class="text-lg font-bold text-sky-400">3. تكلفة وأسعار تصميم المواقع:</h4>
+            <p>
+              تتحدد التكلفة بناءً على متطلبات المشروع؛ فالمواقع التعريفية تبدأ من باقات اقتصادية شاملة الدومين والاستضافة، بينما تتطلب المنصات التفاعلية وحلول الـ SaaS دراسة مخصصة. فريقنا في 963AD يقدم دائماً أعلى قيمة تقنية بأفضل سعر منافس.
+            </p>
+          </div>
+        `
+      },
+      mobile_apps: {
+        badge: 'تصميم تطبيقات',
+        readTime: 'قراءة: 5 دقائق',
+        title: 'تصميم وبرمجة تطبيقات الجوال (Android & iOS): من الفكرة إلى الربح',
+        waMessage: 'مرحباً شركة 963AD، لدي فكرة تطبيق جوال وأرغب في استشارة برمجية لتنفيذه.',
+        body: `
+          <p class="text-base text-gray-200 leading-relaxed font-bold">
+            تطبيقات الهواتف الذكية هي أسرع وسيلة للبقاء في جيب عميلك طوال الوقت، وبناء علاقة ولاء مستمرة من خلال الإشعارات المباشرة وتجربة الاستخدام السريعة.
+          </p>
+          <div class="space-y-4 pt-2">
+            <h4 class="text-lg font-bold text-purple-400">1. خطوات رحلة تطوير التطبيق مع 963AD:</h4>
+            <ul class="space-y-2 list-disc list-inside text-gray-300">
+              <li><strong>التخطيط وتجربة المستخدم (UI/UX Prototyping):</strong> رسم مسار المستخدم وتصميم واجهات عصرية تجمع بين البساطة والجمال.</li>
+              <li><strong>البرمجة بأحدث التقنيات (Flutter Cross-Platform):</strong> بناء كود برمجي واحد عالي الأداء يعمل بنفس الكفاءة على أجهزة أندرويد وآيفون، مما يوفر نصف التكلفة ونصف الوقت.</li>
+              <li><strong>لوحة التحكم السحابية (Backend Architecture):</strong> قاعدة بيانات آمنة ولوحة تحكم تمكنك من متابعة الطلبات، الإشعارات، والتقارير المالية.</li>
+              <li><strong>النشر الرسمي والدعم الفني:</strong> رفع التطبيق على متجري Google Play و Apple App Store مع استيفاء كافة المتطلبات الأمنية.</li>
+            </ul>
+            <h4 class="text-lg font-bold text-purple-400">2. أنواع التطبيقات التي نقوم ببرمجتها:</h4>
+            <p>
+              تطبيقات التجارة الإلكترونية، تطبيقات التوصيل والخدمات اللوجستية، تطبيقات الحجوزات الطبية والعيادات، تطبيقات العقارات، والمنصات التعليمية المتطورة.
+            </p>
+          </div>
+        `
+      },
+      ecommerce: {
+        badge: 'إنشاء متجر إلكتروني',
+        readTime: 'قراءة: 4 دقائق',
+        title: 'إنشاء متجر إلكتروني احترافي متكامل: بوابات الدفع والشحن ومضاعفة المبيعات',
+        waMessage: 'مرحباً شركة 963AD، أرغب في إنشاء متجر إلكتروني متكامل لنشاطي التجاري.',
+        body: `
+          <p class="text-base text-gray-200 leading-relaxed font-bold">
+            التجارة الإلكترونية في سوريا والمنطقة تشهد نمواً هائلاً. امتلاكك لمتجر إلكتروني يفتح لك أبواب البيع في كافة المحافظات دون قيود جغرافية.
+          </p>
+          <div class="space-y-4 pt-2">
+            <h4 class="text-lg font-bold text-emerald-400">1. ما الذي يجعل متجرك الإلكتروني يحقق مبيعات ضخمة؟</h4>
+            <ul class="space-y-2 list-disc list-inside text-gray-300">
+              <li><strong>سلة شراء فائقة السرعة (One-Page Checkout):</strong> تسهيل عملية الشراء في خطوة واحدة دون تعقيدات لتقليل نسبة التراجع عن الشراء.</li>
+              <li><strong>دعم الدفع عند الاستلام (COD) والدفع الإلكتروني:</strong> خيارات دفع مرنة تلبي رغبة كل عميل في دمشق والمحافظات.</li>
+              <li><strong>الربط مع شركات الشحن والتوصيل:</strong> حساب تكاليف التوصيل وتتبع الشحنات آلياً.</li>
+              <li><strong>إدارة المخزون والخصومات:</strong> تنبيهات بنفاد الكميات، كوبونات تخفيض، وعروض حصرية ترفع متوسط قيمة الطلب.</li>
+            </ul>
+            <h4 class="text-lg font-bold text-emerald-400">2. لماذا تختار 963AD لإنشاء متجرك؟</h4>
+            <p>
+              نحن لا نكتفي ببرمجة المتجر، بل نجهزه ليكون ماكينة بيع رقمية: سريع التحميل، متوافق مع محركات البحث، وجاهز للربط مع الحملات الإعلانية على فيسبوك وإنستغرام وتيك توك.
+            </p>
+          </div>
+        `
+      },
+      seo_guide: {
+        badge: 'سيو وتصدر نتائج البحث',
+        readTime: 'قراءة: 6 دقائق',
+        title: 'أسرار تصدر الصفحة الأولى في جوجل (SEO): كيف تصعد بموقعك لأول نتيجة؟',
+        waMessage: 'مرحباً شركة 963AD، أرغب في تحسين سيو موقعي وتصدر نتائج البحث الأولى في جوجل.',
+        body: `
+          <p class="text-base text-gray-200 leading-relaxed font-bold">
+            أكثر من 90% من الزيارات والنقرات تذهب لنتائج الصفحة الأولى في جوجل. إذا لم يكن موقعك في المقدمة، فأنت تهدي عملاءك يومياً للمنافسين.
+          </p>
+          <div class="space-y-4 pt-2">
+            <h4 class="text-lg font-bold text-amber-400">1. الركائز الأربع لتصدر نتائج البحث في 2026:</h4>
+            <ul class="space-y-2 list-disc list-inside text-gray-300">
+              <li><strong>السيو التقني والسرعة (Technical SEO):</strong> أداء سريع جداً، شهادة أمان SSL، خريطة موقع محدثة Sitemap، وعدم وجود أي أخطاء برمجية.</li>
+              <li><strong>البيانات المنظمة (Schema Markup):</strong> إظهار النجوم والأسئلة الشائعة مباشرة في نتيجة بحث جوجل لزيادة نسبة النقر (CTR).</li>
+              <li><strong>استهداف الكلمات الدقيقة (Intent-Based Keywords):</strong> التركيز على الكلمات التي يكتبها العميل الجاهز للشراء والطلب مثل "تصميم مواقع"، "برمجة تطبيقات"، "انشاء متجر الكتروني".</li>
+              <li><strong>الثقة والموثوقية (E-E-A-T & Backlinks):</strong> بناء روابط خلفية وإشارات رقمية موثوقة تعزز مصداقية موقعك أمام روبوتات جوجل.</li>
+            </ul>
+            <h4 class="text-lg font-bold text-amber-400">2. كيف ساعدنا عملائنا على القفز للصفحة الأولى؟</h4>
+            <p>
+              خلال أسابيع قليلة، قفز موقع 963AD من الصفحة السادسة إلى الصفحة الأولى بفضل التخلص من ملفات الحظر، وضغط الصور بصيغة WebP، وضبط أسرع تجربة مستخدم ممكنة.
+            </p>
+          </div>
+        `
+      }
+    };
+
+    function openArticleModal(key) {
+      const data = articleData[key];
+      if (!data) return;
+
+      document.getElementById('articleModalBadge').innerText = data.badge;
+      document.getElementById('articleModalReadTime').innerText = data.readTime;
+      document.getElementById('articleModalTitle').innerText = data.title;
+      document.getElementById('articleModalBody').innerHTML = data.body;
+      document.getElementById('articleModalWaBtn').href = `https://wa.me/963994524330?text=${encodeURIComponent(data.waMessage)}`;
+
+      const modal = document.getElementById('articleModal');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeArticleModal() {
+      const modal = document.getElementById('articleModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.getElementById('articleModal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'articleModal') closeArticleModal();
+    });
+
+    // Support Escape key to close any active modal or mobile menu
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeServiceModal();
         closeLegalModal();
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+        }
       }
     });
 
     // Update Legal Modal content dynamically when switching language
-    const originalLangToggle = langToggleBtn.onclick;
-    langToggleBtn.addEventListener('click', () => {
-      if (activeLegalKey && legalData[activeLegalKey]) {
-        const data = legalData[activeLegalKey];
-        document.getElementById('legalModalTitle').innerText = data.title[currentLang] || data.title.ar;
-        document.getElementById('legalModalSubtitle').innerText = data.subtitle[currentLang] || data.subtitle.ar;
-        document.getElementById('legalModalContent').innerHTML = data.content[currentLang] || data.content.ar;
-      }
-    });
+    if (langToggleBtn) {
+      langToggleBtn.addEventListener('click', () => {
+        if (activeLegalKey && legalData[activeLegalKey]) {
+          const data = legalData[activeLegalKey];
+          document.getElementById('legalModalTitle').innerText = data.title[currentLang] || data.title.ar;
+          document.getElementById('legalModalSubtitle').innerText = data.subtitle[currentLang] || data.subtitle.ar;
+          document.getElementById('legalModalContent').innerHTML = data.content[currentLang] || data.content.ar;
+        }
+      });
+    }

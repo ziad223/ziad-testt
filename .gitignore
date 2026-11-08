@@ -1,0 +1,5 @@
+node_modules/
+images/raw_backup/
+.DS_Store
+Thumbs.db
+
